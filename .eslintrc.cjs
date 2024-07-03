@@ -2,13 +2,18 @@ const path = require('path');
 
 module.exports = {
     extends: [
-        '@spotify',
+        'eslint:recommended',
+        'universe',
+        'universe/native',
+        'universe/web',
+        'universe/shared/typescript-analysis',
+        'airbnb',
+        'airbnb/hooks',
         'prettier',
         'plugin:@typescript-eslint/recommended',
         'plugin:testing-library/react',
         'plugin:storybook/recommended',
     ],
-    plugins: ['react', 'jest', 'react-hooks', '@typescript-eslint'],
     overrides: [
         {
             files: ['*.ts', '*.tsx'],
@@ -16,18 +21,9 @@ module.exports = {
             parserOptions: {
                 project: './tsconfig.json',
             },
-        },
-        {
-            files: ['**/__tests__/**/*.[jt]s?(x)'],
-            settings: {
-                'import/resolver': {
-                    node: {
-                        paths: [path.resolve(__dirname, 'src')],
-                    },
-                },
-            },
-        },
+        }
     ],
+    plugins: ['react', 'jest', 'react-hooks', '@typescript-eslint'],
     rules: {
         'linebreak-style': 'off',
         'func-names': 0,
