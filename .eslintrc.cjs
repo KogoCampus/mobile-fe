@@ -2,18 +2,13 @@ const path = require('path');
 
 module.exports = {
     extends: [
-        'eslint:recommended',
-        'universe',
-        'universe/native',
-        'universe/web',
-        'universe/shared/typescript-analysis',
-        'airbnb',
-        'airbnb/hooks',
+        '@spotify',
         'prettier',
         'plugin:@typescript-eslint/recommended',
         'plugin:testing-library/react',
         'plugin:storybook/recommended',
     ],
+    plugins: ['react', 'jest', 'react-hooks', '@typescript-eslint'],
     overrides: [
         {
             files: ['*.ts', '*.tsx'],
@@ -33,7 +28,6 @@ module.exports = {
             },
         },
     ],
-    plugins: ['react', 'jest', 'react-hooks', '@typescript-eslint'],
     rules: {
         'linebreak-style': 'off',
         'func-names': 0,
