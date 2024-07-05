@@ -1,30 +1,40 @@
+## Installation
 ```
-# dev mode
-npm start
+yarn install
+npx husky
+```
 
+## Commands
+```
 # storybook
-npm run storybook
+yarn storybook
 
-# testing
-npm run test
+# start in dev mode
+yarn start
+
+# run tests
+yarn run test
 
 # linter
-npm run lint
+yarn run lint
 
 # formatter
-npm run prettier
-
-# typescript type check
-npm run tsc
+yarn run prettier
 ```
 
-VS Code eslint plugin  
+## Conventional Commit
+```
+git commit -m "{commit-type}: {description}"
 
+acceptable commit types:
+['feat', 'fix', 'docs', 'style', 'refactor', 'ci', 'test', 'foo']
+```
+
+## Others
+VS Code eslint plugin  
 
 eslint RNTL bug:  
 https://github.com/testing-library/eslint-plugin-testing-library/issues/777
-
-## Libs:  
 
 Using ```px``` for sizing raster images, ```em``` for current element font size relative padding/margins/line spacing, and ```rem``` for font size definitions and general layout is fine.    
 
@@ -35,7 +45,6 @@ React-hook-form
 https://react-hook-form.com/get-started  
 Zod validation in React-hook-form  
 https://github.com/react-hook-form/resolvers#zod  
-
 
 # EAS
 After running eas update, upload the source maps to Sentry:   
