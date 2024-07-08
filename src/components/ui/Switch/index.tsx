@@ -1,7 +1,7 @@
 import React from 'react';
 import { TouchableOpacity, View } from 'react-native';
 import { cva, VariantProps } from 'class-variance-authority';
-import { cn } from '../../lib/utils';
+import { cn } from '@lib/utils';
 
 const switchStyles = cva('rounded-full w-12 h-6 justify-center px-1', {
     variants: {

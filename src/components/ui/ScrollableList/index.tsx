@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Animated, NativeSyntheticEvent, NativeScrollEvent } from 'react-native';
 import { cva, VariantProps } from 'class-variance-authority';
-import { cn } from '../../lib/utils';
+import { cn } from '../../../lib/utils';
 
 const scrollableList = cva('', {
     variants: {

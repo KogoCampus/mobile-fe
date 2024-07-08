@@ -8,11 +8,17 @@
     "paths": {
         "@apps/*": ["src/apps/*"],
         "@components/*": ["src/components/*"],
+        "@components": ["src/components/index"],
         "@hooks-api/*": ["src/hooks-api/*"],
+        "@hooks-api": ["src/hooks-api/index"],
         "@hooks-context/*": ["src/hooks-context/*"],
+        "@hooks-context": ["src/hooks-context/index"],
         "@navigation/*": ["src/navigation/*"],
+        "@navigation": ["src/navigation/index"],
         "@pages/*": ["src/pages/*"],
+        "@pages": ["src/pages/index"],
         "@lib/*": ["src/lib/*"],
+        "@lib": ["src/lib/index"],
     },
   },
 }

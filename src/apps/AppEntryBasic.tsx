@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { QueryClient, QueryClientConfig, QueryClientProvider, onlineManager } from '@tanstack/react-query';
 import NetInfo from '@react-native-community/netinfo';
-import AppNavigation from '@navigation/index';
+import AppNavigation from '@navigation';
 
 import { useThemeFonts } from '../../theme';
 import '../../theme/tailwind.css';

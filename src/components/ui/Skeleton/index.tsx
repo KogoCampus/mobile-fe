@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import { Animated } from 'react-native';
 import { cva, VariantProps } from 'class-variance-authority';
-import { cn } from '../../lib/utils';
+import { cn } from '../../../lib/utils';
 
 const skeleton = cva('bg-gray-300', {
     variants: {

@@ -2,7 +2,7 @@ import React from 'react';
 import { TouchableOpacity, Text, ViewStyle } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 import { cva, VariantProps } from 'class-variance-authority';
-import { cn } from '../../lib/utils';
+import { cn } from '@lib/utils';
 
 const tagStyles = cva('flex-row items-center px-2 py-1 rounded-full bg-gray-200', {
     variants: {},

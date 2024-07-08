@@ -1,7 +1,7 @@
 import React from 'react';
 import { TouchableOpacity, View, Text, ViewStyle } from 'react-native';
 import { cva, VariantProps } from 'class-variance-authority';
-import { cn } from '../../lib/utils';
+import { cn } from '../../../lib/utils';
 
 const radioStyles = cva('flex-row items-center', {
     variants: {
