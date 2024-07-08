@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react-native';
-import Typography from '../../components/ui/Typography';
+import Typography from '@components/ui/Typography';
 
 describe('when Typography is loaded', () => {
     it('should be rendered on screen', () => {
