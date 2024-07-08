@@ -14,16 +14,23 @@ module.exports = {
         'plugin:testing-library/react',
         'plugin:storybook/recommended',
     ],
-    overrides: [
-        {
-            files: ['*.ts', '*.tsx'],
-            parser: '@typescript-eslint/parser',
-            parserOptions: {
-                project: './tsconfig.json',
-            },
+    plugins: ['react', 'jest', 'react-hooks', '@typescript-eslint', 'import'],
+    parser: "@typescript-eslint/parser",
+    parserOptions: {
+      project: "./tsconfig.json",
+      tsconfigRootDir: "./"
+    },
+    settings: {
+        "import/parsers": {
+          "@typescript-eslint/parser": [".ts", ".tsx"]
+        },
+        "import/resolver": {
+          typescript: {
+            "alwaysTryTypes": true, 
+            "project": "./tsconfig.json",
+          }
         }
-    ],
-    plugins: ['react', 'jest', 'react-hooks', '@typescript-eslint'],
+    },
     rules: {
         'linebreak-style': 'off',
         'func-names': 0,

@@ -2,6 +2,8 @@ import { cva, VariantProps } from 'class-variance-authority';
 import { useState } from 'react';
 import { NativeSyntheticEvent, TextInput, TextInputChangeEventData, TextInputKeyPressEventData } from 'react-native';
 
+import { cn } from '../../../lib/utils';
+
 const defaultStyle = ['font-WantedSansMedium', 'border-b-2', 'bg-transparent', 'w-80', 'align-top', 'p-1'];
 
 const textField = cva(defaultStyle, {
@@ -23,32 +25,40 @@ type TextFieldProps = VariantProps<typeof textField> & {
     className?: string;
     onChange?: (e: NativeSyntheticEvent<TextInputChangeEventData>) => void;
     onKeyPress?: (e: NativeSyntheticEvent<TextInputKeyPressEventData>) => void;
+    validate?: (current: string) => boolean;
 };
 
-const TextField: React.FC<TextFieldProps> = function ({ intent, className, placeholder, onChange, onKeyPress }) {
+const TextField: React.FC<TextFieldProps> = function ({
+    intent,
+    className,
+    placeholder,
+    onChange = () => null,
+    onKeyPress = () => null,
+    validate = () => true,
+}) {
     const [text, setText] = useState('');
     const [focus, setFocus] = useState(false);
     const [blur, setBlur] = useState(false);
-    const [err, setErr] = useState(false);
+    const [hasError, toggerError] = useState(false);
 
-    const validateDemo = (e: NativeSyntheticEvent<TextInputChangeEventData>) => {
+    const onChangeEvent = (e: NativeSyntheticEvent<TextInputChangeEventData>) => {
         setText(e.nativeEvent.text);
-        onChange(e);
-        if (text.length >= 50) {
-            setErr(true);
+        if (!validate(text)) {
+            toggerError(true);
         } else {
-            setErr(false);
+            toggerError(false);
+            onChange(e);
         }
     };
 
     const selectIntent = () => {
-        if (focus && intent === 'default' && !err) {
+        if (focus && intent === 'default' && !hasError) {
             return textField({ intent: 'pressed', className });
         }
-        if (blur && intent === 'pressed' && !err) {
+        if (blur && intent === 'pressed' && !hasError) {
             return textField({ intent: 'default', className });
         }
-        if (err) {
+        if (hasError) {
             return textField({ intent: 'error', className });
         }
         return textField({ intent, className });
@@ -68,9 +78,9 @@ const TextField: React.FC<TextFieldProps> = function ({ intent, className, place
                 setBlur(true);
                 setFocus(false);
             }}
-            onChange={validateDemo}
+            onChange={onChangeEvent}
             onKeyPress={onKeyPress}
-            className={selectIntent()}
+            className={cn(selectIntent())}
         />
     );
 };

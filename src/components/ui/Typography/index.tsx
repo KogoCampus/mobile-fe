@@ -1,7 +1,7 @@
 import { cva, VariantProps } from 'class-variance-authority';
 import { Text } from 'react-native';
 
-import { cn } from '../../lib/utils';
+import { cn } from '../../../lib/utils';
 
 const typography = cva('font-WantedSansMedium', {
     variants: {

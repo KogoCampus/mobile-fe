@@ -1,8 +1,18 @@
 {
   "extends": "expo/tsconfig.base",
+  "include": ["**/*.tsx", "**/*.ts", "**/*.d.ts"],
+  "exclude": ["node_modules"],
   "compilerOptions": {
     "strict": true,
+    "baseUrl": ".",
+    "paths": {
+        "@apps/*": ["src/apps/*"],
+        "@components/*": ["src/components/*"],
+        "@hooks-api/*": ["src/hooks-api/*"],
+        "@hooks-context/*": ["src/hooks-context/*"],
+        "@navigation/*": ["src/navigation/*"],
+        "@pages/*": ["src/pages/*"],
+        "@lib/*": ["src/lib/*"],
+    },
   },
-  "include": ["**/*.tsx", "**/*.ts", "**/*.d.ts"],
-  "exclude": ["node_modules"]
 }

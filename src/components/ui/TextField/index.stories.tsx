@@ -1,16 +1,16 @@
 import { ComponentProps } from 'react';
 import { View } from 'react-native';
 import type { Meta, StoryObj } from '@storybook/react';
-import TextArea from '.';
+import TextField from '.';
 
 const meta = {
-    title: 'TextArea',
-    component: TextArea,
+    title: 'TextField',
+    component: TextField,
 } satisfies Meta;
 
 export default meta;
 
-type Story = StoryObj<ComponentProps<typeof TextArea> & { customTextValue: string; className: string }>;
+type Story = StoryObj<ComponentProps<typeof TextField> & { customTextValue: string; className: string }>;
 
 export const Default: Story = {
     args: {
@@ -25,19 +25,19 @@ export const Default: Story = {
     },
     render: ({ intent, className }) => (
         <View>
-            <TextArea intent={intent} className={className} />
+            <TextField intent={intent} className={className} />
 
             <View className="py-1" />
-            <TextArea intent="default" placeholder="default.com" />
+            <TextField intent="default" placeholder="default.com" />
 
             <View className="py-1" />
-            <TextArea intent="pressed" placeholder="pressed.com" />
+            <TextField intent="pressed" placeholder="pressed.com" />
 
             <View className="py-1" />
-            <TextArea intent="disabled" placeholder="disabled.com" />
+            <TextField intent="disabled" placeholder="disabled.com" />
 
             <View className="py-1" />
-            <TextArea intent="error" placeholder="error.com" />
+            <TextField intent="error" validate={value => value.includes('error')} placeholder="error.com" />
         </View>
     ),
 };

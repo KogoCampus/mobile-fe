@@ -1,4 +1,4 @@
-const config = {
+module.exports = {
     name: 'kogo',
     slug: 'kogo',
     version: '1.0.0',
@@ -11,9 +11,4 @@ const config = {
         backgroundColor: '#ffffff',
     },
     assetBundlePatterns: ['**/*'],
-    extra: {
-        storybookEnabled: process.env.STORYBOOK_ENABLED,
-    },
 };
-
-module.exports = config;

@@ -3,6 +3,8 @@ import { cva, VariantProps } from 'class-variance-authority';
 import { FontAwesome6 } from '@expo/vector-icons';
 import { useState } from 'react';
 
+import { cn } from '../../../lib/utils';
+
 const defaultStyle = ['flex-col', 'justify-center', 'items-center', 'rounded-full'];
 const iconButton = cva(defaultStyle, {
     variants: {
@@ -70,7 +72,7 @@ const IconButton: React.FC<iconButtonProps> = function ({
 
     return (
         <TouchableOpacity
-            className={selectIntent()}
+            className={cn(selectIntent())}
             disabled={disabled}
             onPress={onPress}
             onPressIn={() => setActive(true)}

@@ -1,9 +1,13 @@
 import { TouchableOpacity } from 'react-native';
 import { cva, VariantProps } from 'class-variance-authority';
 import { useState } from 'react';
+import { FontAwesome6 } from '@expo/vector-icons';
 import Typography from '../Typography';
 
-const textButton = cva(['font-WantedSansMedium', 'rounded-2xl', 'p-3'], {
+import { cn } from '../../../lib/utils';
+
+const defaultStyle = ['font-WantedSansMedium', 'rounded-2xl', 'p-3', 'flex-row', 'justify-center', 'items-center'];
+const textIconButton = cva(defaultStyle, {
     variants: {
         intent: {
             default: ['bg-black'],
@@ -23,40 +27,64 @@ const textButton = cva(['font-WantedSansMedium', 'rounded-2xl', 'p-3'], {
     },
 });
 
-type TextButtonProps = VariantProps<typeof textButton> & {
+type TextIconButtonProps = VariantProps<typeof textIconButton> & {
     children?: string;
     onPress?: () => unknown;
     disabled?: boolean;
+    iconName?: string;
+    iconSize?: string;
+    iconColor?: string;
     className?: string;
 };
 
-const TextButton: React.FC<TextButtonProps> = function ({ intent, size, className, disabled, onPress, children }) {
+const TextIconButton: React.FC<TextIconButtonProps> = function ({
+    intent,
+    size,
+    iconName,
+    iconColor,
+    iconSize,
+    className,
+    disabled,
+    onPress,
+    children,
+}) {
     const [active, setActive] = useState(false);
     const selectIntent = () => {
         if (active && intent !== 'text') {
-            return textButton({ intent: 'pressed', size, className });
+            return textIconButton({ intent: 'pressed', size, className });
         }
         if (disabled) {
-            return textButton({ intent: 'disabled', size, className });
+            return textIconButton({ intent: 'disabled', size, className });
         }
-        return textButton({ intent, size, className });
+        return textIconButton({ intent, size, className });
+    };
+
+    const setSize = () => {
+        if (iconSize === 'sm') {
+            return 13;
+        }
+        if (iconSize === 'md') {
+            return 20;
+        }
+        return 25;
     };
 
     return (
         <TouchableOpacity
-            className={selectIntent()}
+            className={cn(selectIntent())}
             disabled={disabled}
             onPressIn={() => setActive(true)}
             onPressOut={() => setActive(false)}
             onPress={onPress}
             activeOpacity={0.8}>
+            <FontAwesome6 name={iconName} size={setSize()} color={iconColor} />
             <Typography
                 intent="text"
-                className={intent !== 'text' ? 'text-white text-center' : 'text-black text-center'}>
+                className={intent !== 'text' ? 'text-white text-center pl-1' : 'text-black text-center pl-1'}>
                 {children}
             </Typography>
         </TouchableOpacity>
     );
 };
 
-export default TextButton;
+export default TextIconButton;

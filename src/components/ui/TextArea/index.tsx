@@ -2,6 +2,8 @@ import { cva, VariantProps } from 'class-variance-authority';
 import { useState } from 'react';
 import { NativeSyntheticEvent, TextInput, TextInputChangeEventData } from 'react-native';
 
+import { cn } from '../../../lib/utils';
+
 const defaultStyle = [
     'font-WantedSansMedium',
     'border-2',
@@ -31,33 +33,40 @@ type textAreaProps = VariantProps<typeof textArea> & {
     children?: string;
     placeholder?: string;
     className?: string;
-    onChange?: () => unknown;
+    onChange?: (e: NativeSyntheticEvent<TextInputChangeEventData>) => unknown;
+    validate?: (current: string) => boolean;
 };
 
-const TextArea: React.FC<textAreaProps> = function ({ intent, className, placeholder, onChange }) {
+const TextArea: React.FC<textAreaProps> = function ({
+    intent,
+    className,
+    placeholder,
+    onChange = () => null,
+    validate = () => true,
+}) {
     const [text, setText] = useState('');
     const [focus, setFocus] = useState(false);
     const [blur, setBlur] = useState(false);
-    const [err, setErr] = useState(false);
+    const [hasError, toggleError] = useState(false);
 
-    const validateDemo = (e: NativeSyntheticEvent<TextInputChangeEventData>) => {
+    const onChangeEvent = (e: NativeSyntheticEvent<TextInputChangeEventData>) => {
         setText(e.nativeEvent.text);
-        onChange(e.nativeEvent.text);
-        if (text.length >= 50) {
-            setErr(true);
+        if (!validate(text)) {
+            toggleError(false);
         } else {
-            setErr(false);
+            toggleError(true);
+            onChange(e);
         }
     };
 
     const selectIntent = () => {
-        if (focus && intent === 'default' && !err) {
+        if (focus && intent === 'default' && !hasError) {
             return textArea({ intent: 'pressed', className });
         }
-        if (blur && intent === 'pressed' && !err) {
+        if (blur && intent === 'pressed' && !hasError) {
             return textArea({ intent: 'default', className });
         }
-        if (err) {
+        if (hasError) {
             return textArea({ intent: 'error', className });
         }
         return textArea({ intent, className });
@@ -79,8 +88,8 @@ const TextArea: React.FC<textAreaProps> = function ({ intent, className, placeho
                 setBlur(true);
                 setFocus(false);
             }}
-            onChange={validateDemo}
-            className={selectIntent()}
+            onChange={onChangeEvent}
+            className={cn(selectIntent())}
         />
     );
 };
