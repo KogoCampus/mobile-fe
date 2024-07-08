@@ -4,7 +4,9 @@
   "main": "src/index.ts",
   "scripts": {
     "start": "expo start",
-    "test": "jest -c jest.config.js",
+    "test": "jest",
+    "test:ci": "CI=true jest",
+    "test:components": "jest --projects jest.components.config.js",
     "lint": "echo \"\\033[33mRunning eslint check\" && eslint src/**/*.ts{,x}",
     "prettier": "prettier --write src",
     "storybook": "sb-rn-get-stories && APP_ENTRY='storybook' expo start",
@@ -81,6 +83,11 @@
     "react-dom": "^18.2.0",
     "typescript": "~5.3.3"
   },
+  "jest": {
+    "projects": [
+      "<rootDir>/jest.components.config.js"
+    ]
+  },
   "prettier": {
     "arrowParens": "avoid",
     "bracketSpacing": true,
@@ -93,7 +100,7 @@
     "useTabs": false
   },
   "lint-staged": {
-    "**/*.{js,jsx,ts,tsx}": [
+    "src/**/*.{js,jsx,ts,tsx}": [
       "yarn prettier",
       "yarn lint"
     ]

@@ -31,4 +31,4 @@ jobs:
             - name: Run test in sub-folder
               uses: borales/actions-yarn@v4
               with:
-                cmd: test
+                cmd: test:ci
