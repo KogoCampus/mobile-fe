@@ -78,7 +78,7 @@ const Swiper: React.FC<SwiperProps> = function ({ children, direction, style, on
 const styles = StyleSheet.create({
     pagination: {
         position: 'absolute',
-        bottom: 10,
+        bottom: 20,
         left: 0,
         right: 0,
         flexDirection: 'row',
