@@ -6,7 +6,7 @@
     "start": "expo start",
     "test": "jest",
     "test:ci": "CI=true jest",
-    "test:components": "jest --projects jest.components.config.js",
+    "test:components": "jest --selectProjects @components",
     "lint": "echo \"\\033[33mRunning eslint check\" && eslint src/**/*.ts{,x}",
     "prettier": "prettier --write src",
     "storybook": "sb-rn-get-stories && APP_ENTRY='storybook' expo start",
@@ -82,11 +82,6 @@
     "prettier": "^2.8.8",
     "react-dom": "^18.2.0",
     "typescript": "~5.3.3"
-  },
-  "jest": {
-    "projects": [
-      "<rootDir>/jest.components.config.js"
-    ]
   },
   "prettier": {
     "arrowParens": "avoid",
