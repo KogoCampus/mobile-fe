@@ -42,7 +42,7 @@ function AppLoading(): JSX.Element {
                     Dimensions.get('window').height / 2 + 19,
                 ),
             ]).start(() => {
-                navigation.navigate({ name: AppScreens.SPLASH_SCREEN, params: undefined });
+                navigation.navigate({ name: AppScreens.ONBOARDING_SCREEN, params: undefined });
             });
         };
 
