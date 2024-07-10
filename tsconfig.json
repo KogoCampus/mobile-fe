@@ -19,6 +19,7 @@
         "@screens": ["src/screens/index"],
         "@lib/*": ["src/lib/*"],
         "@lib": ["src/lib/index"],
+        "@images/*": ["src/assets/images/*"],
     },
   },
 }

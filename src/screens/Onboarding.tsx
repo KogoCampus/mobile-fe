@@ -17,19 +17,19 @@ function SplashScreen(): JSX.Element {
     return (
         <Swiper direction="horizontal">
             <View style={styles.slide}>
-                <Image style={styles.image} source={require('../assets/1.png')} />
+                <Image style={styles.image} source={require('@images/1.png')} />
                 <Typography intent="text" className="text-base text-center px-5">
                     Organize your courses, plans, more
                 </Typography>
             </View>
             <View style={styles.slide}>
-                <Image style={styles.image} source={require('../assets/2.png')} />
+                <Image style={styles.image} source={require('@images/2.png')} />
                 <Typography intent="text" className="text-base text-center px-5">
                     Connect with other students in {'\n'}20+ Canadian Universities
                 </Typography>
             </View>
             <View style={styles.slide}>
-                <Image style={styles.image} source={require('../assets/3.png')} />
+                <Image style={styles.image} source={require('@images/3.png')} />
                 <Typography intent="text" className="text-base text-center px-5">
                     Broaden your university life
                 </Typography>

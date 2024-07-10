@@ -56,7 +56,7 @@ function AppLoading(): JSX.Element {
     return (
         /* eslint-disable global-require */
         <View style={styles.container}>
-            <Image style={styles.logo} source={require('../assets/logo_.png')} />
+            <Image style={styles.logo} source={require('@images/logo_.png')} />
             <Animated.View style={[styles.dot, styles.dot1, { top: dot1Anim }]} />
             <Animated.View style={[styles.dot, styles.dot2, { top: dot2Anim }]} />
         </View>
