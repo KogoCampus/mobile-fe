@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { View, ScrollView, Dimensions, NativeSyntheticEvent, NativeScrollEvent, StyleSheet } from 'react-native';
+import { View, ScrollView, Dimensions, NativeSyntheticEvent, NativeScrollEvent } from 'react-native';
 import { cva, VariantProps } from 'class-variance-authority';
 import { cn } from '@lib/utils';
 
@@ -26,6 +26,8 @@ const dotStyles = cva('w-2 h-2 rounded-full mx-1', {
         active: false,
     },
 });
+
+const paginationStyles = cva('absolute bottom-5 left-0 right-0 flex-row justify-center');
 
 type SwiperProps = VariantProps<typeof swiperStyles> & {
     children: React.ReactNode;
@@ -59,14 +61,15 @@ const Swiper: React.FC<SwiperProps> = function ({ children, direction, style, on
                 showsHorizontalScrollIndicator={false}
                 showsVerticalScrollIndicator={false}
                 onScroll={handleScroll}
-                scrollEventThrottle={16}>
+                scrollEventThrottle={16}
+                testID="swiper-scroll-view">
                 {React.Children.map(children, (child, i) => (
                     <View style={{ width, height }} key={i}>
                         {child}
                     </View>
                 ))}
             </ScrollView>
-            <View style={styles.pagination}>
+            <View className={cn(paginationStyles())}>
                 {React.Children.map(children, (_, i) => (
                     <View key={i} className={cn(dotStyles({ active: i === index }))} />
                 ))}
@@ -74,16 +77,5 @@ const Swiper: React.FC<SwiperProps> = function ({ children, direction, style, on
         </View>
     );
 };
-
-const styles = StyleSheet.create({
-    pagination: {
-        position: 'absolute',
-        bottom: 20,
-        left: 0,
-        right: 0,
-        flexDirection: 'row',
-        justifyContent: 'center',
-    },
-});
 
 export default Swiper;

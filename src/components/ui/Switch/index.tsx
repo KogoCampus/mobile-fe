@@ -38,8 +38,10 @@ const Switch: React.FC<SwitchProps> = function ({ value, onSwitch, style }) {
         <TouchableOpacity
             onPress={onSwitch}
             style={style}
-            className={cn(switchStyles({ state: value ? 'on' : 'off' }))}>
-            <View className={cn(circleStyles({ state: value ? 'on' : 'off' }))} />
+            className={cn(switchStyles({ state: value ? 'on' : 'off' }))}
+            testID="switch"
+            accessibilityRole="button">
+            <View className={cn(circleStyles({ state: value ? 'on' : 'off' }))} testID="switch-circle" />
         </TouchableOpacity>
     );
 };
