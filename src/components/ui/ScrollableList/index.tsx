@@ -19,6 +19,7 @@ type ScrollableListProps = VariantProps<typeof scrollableList> & {
     style?: object;
     children: React.ReactNode;
     onScroll?: (event: NativeSyntheticEvent<NativeScrollEvent>) => void;
+    testID?: string;
 };
 
 type ListItemProps = {
@@ -30,7 +31,7 @@ const ListItem: React.FC<ListItemProps> = function ({ style, children }) {
     return <View style={style}>{children}</View>;
 };
 
-const ScrollableList: React.FC<ScrollableListProps> = function ({ style, intent, children, onScroll }) {
+const ScrollableList: React.FC<ScrollableListProps> = function ({ style, intent, children, onScroll, testID }) {
     return (
         <View style={style} className={cn(scrollableList({ intent }))}>
             <Animated.FlatList
@@ -38,6 +39,7 @@ const ScrollableList: React.FC<ScrollableListProps> = function ({ style, intent,
                 renderItem={({ item, index }) => <View key={index.toString()}>{item}</View>}
                 onScroll={onScroll}
                 horizontal={intent === 'horizontal'}
+                testID={testID}
             />
         </View>
     );
