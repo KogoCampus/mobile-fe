@@ -2,9 +2,7 @@ import { useEffect } from 'react';
 import { QueryClient, QueryClientConfig, QueryClientProvider, onlineManager } from '@tanstack/react-query';
 import NetInfo from '@react-native-community/netinfo';
 import AppNavigation from '@navigation';
-
-import { useThemeFonts } from '../../theme';
-import '../../theme/tailwind.css';
+import withThemeFonts from './withThemeFonts';
 
 onlineManager.setEventListener(setOnline =>
     NetInfo.addEventListener(state => {
@@ -23,9 +21,7 @@ const queryConfig: QueryClientConfig = {
 
 const queryClient = new QueryClient(queryConfig);
 
-function AppEntry(): JSX.Element {
-    const [, fontError] = useThemeFonts();
-
+function AppEntry(): JSX.Element | null {
     useEffect(() => {
         async function initialize() {
             console.log('App Initialized.');
@@ -33,15 +29,13 @@ function AppEntry(): JSX.Element {
         initialize();
     }, []);
 
-    if (fontError) {
-        console.error(`Failed to load fonts. ${fontError.message}`);
-    }
-
-    return (
+    const Component = (
         <QueryClientProvider client={queryClient}>
             <AppNavigation />
         </QueryClientProvider>
     );
+
+    return withThemeFonts(() => Component)({});
 }
 
 export default AppEntry;

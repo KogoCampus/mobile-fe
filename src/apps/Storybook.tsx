@@ -1,12 +1,8 @@
 import { useEffect } from 'react';
 import SbView from '../../.storybook';
-import { useThemeFonts } from '../../theme';
-
-import '../../theme/tailwind.css';
+import withThemeFonts from './withThemeFonts';
 
 function AppEntry(): JSX.Element | null {
-    const [, fontError] = useThemeFonts();
-
     useEffect(() => {
         async function initialize() {
             console.log('App Initialized.');
@@ -14,11 +10,7 @@ function AppEntry(): JSX.Element | null {
         initialize();
     }, []);
 
-    if (fontError) {
-        console.error(`Failed to load fonts. ${fontError.message}`);
-    }
-
-    return SbView();
+    return withThemeFonts(SbView)({});
 }
 
 export default AppEntry;
