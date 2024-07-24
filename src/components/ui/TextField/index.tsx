@@ -1,7 +1,6 @@
+import React, { useState } from 'react';
+import { TextInput, NativeSyntheticEvent, TextInputChangeEventData, TextInputKeyPressEventData } from 'react-native';
 import { cva, VariantProps } from 'class-variance-authority';
-import { useState } from 'react';
-import { NativeSyntheticEvent, TextInput, TextInputChangeEventData, TextInputKeyPressEventData } from 'react-native';
-
 import { cn } from '../../../lib/utils';
 
 const defaultStyle = ['font-WantedSansMedium', 'border-b-2', 'bg-transparent', 'w-80', 'align-top', 'p-1'];
@@ -23,6 +22,7 @@ const textField = cva(defaultStyle, {
 type TextFieldProps = VariantProps<typeof textField> & {
     placeholder?: string;
     className?: string;
+    value?: string;
     onChange?: (e: NativeSyntheticEvent<TextInputChangeEventData>) => void;
     onKeyPress?: (e: NativeSyntheticEvent<TextInputKeyPressEventData>) => void;
     validate?: (current: string) => boolean;
@@ -32,21 +32,22 @@ const TextField: React.FC<TextFieldProps> = function ({
     intent,
     className,
     placeholder,
+    value,
     onChange = () => null,
     onKeyPress = () => null,
     validate = () => true,
 }) {
-    const [text, setText] = useState('');
+    const [text, setText] = useState(value || '');
     const [focus, setFocus] = useState(false);
     const [blur, setBlur] = useState(false);
-    const [hasError, toggerError] = useState(false);
+    const [hasError, toggleError] = useState(false);
 
     const onChangeEvent = (e: NativeSyntheticEvent<TextInputChangeEventData>) => {
         setText(e.nativeEvent.text);
-        if (!validate(text)) {
-            toggerError(true);
+        if (!validate(e.nativeEvent.text)) {
+            toggleError(true);
         } else {
-            toggerError(false);
+            toggleError(false);
             onChange(e);
         }
     };
@@ -86,5 +87,4 @@ const TextField: React.FC<TextFieldProps> = function ({
 };
 
 export default TextField;
-
 // secureTextEntry <- for password input

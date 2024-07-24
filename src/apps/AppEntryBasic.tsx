@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { QueryClient, QueryClientConfig, QueryClientProvider, onlineManager } from '@tanstack/react-query';
 import NetInfo from '@react-native-community/netinfo';
 import AppNavigation from '@navigation';
+import { AlertProvider } from '@components/ui/Alert/AlertContext';
 import withThemeFonts from './withThemeFonts';
 
 onlineManager.setEventListener(setOnline =>
@@ -31,7 +32,9 @@ function AppEntry(): JSX.Element | null {
 
     const Component = (
         <QueryClientProvider client={queryClient}>
-            <AppNavigation />
+            <AlertProvider>
+                <AppNavigation />
+            </AlertProvider>
         </QueryClientProvider>
     );
 
