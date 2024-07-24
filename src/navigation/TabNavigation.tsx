@@ -1,7 +1,8 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Text } from 'react-native';
 
-import { AppScreens, AppScreensParamList } from './paramTypes';
+import { AppScreens, AppScreensParamList, AppNavigators } from './paramTypes';
+import ScheduleNavigator from './navigators/ScheduleNavigator';
 
 const Tab = createBottomTabNavigator<AppScreensParamList>();
 
@@ -10,6 +11,7 @@ const Tab = createBottomTabNavigator<AppScreensParamList>();
 function SampleHomeScreen(): JSX.Element {
     return <Text style={{ fontSize: 60 }}>test home screen</Text>;
 }
+
 // ---------------------------------------
 
 function TabNavigation(): JSX.Element {
@@ -24,6 +26,7 @@ function TabNavigation(): JSX.Element {
                 tabBarInactiveTintColor: 'lightgrey',
             })}>
             <Tab.Screen name={AppScreens.HOME_SCREEN} component={SampleHomeScreen} />
+            <Tab.Screen name={AppNavigators.SCHEDULE} component={ScheduleNavigator} />
         </Tab.Navigator>
     );
 }

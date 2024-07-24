@@ -4,6 +4,9 @@ import { createStackNavigator, StackNavigationOptions } from '@react-navigation/
 import { AppNavigators, AppScreensParamList } from './paramTypes';
 import Onboarding from './navigators/Onboarding';
 import TabNavigation from './TabNavigation';
+import SigninNavigator from './navigators/SigninNavigator';
+import ScheduleNavigator from './navigators/ScheduleNavigator';
+import SignupNavigator from './navigators/SignupNavigator';
 
 const Stack = createStackNavigator<AppScreensParamList>();
 
@@ -24,7 +27,10 @@ function AppNavigation(): JSX.Element {
         <NavigationContainer onStateChange={handleNavigationStateChange} ref={navigationContainerRef}>
             <Stack.Navigator initialRouteName={AppNavigators.ONBOARDING} screenOptions={options}>
                 <Stack.Screen name={AppNavigators.ONBOARDING} component={Onboarding} />
+                <Stack.Screen name={AppNavigators.SIGNIN} component={SigninNavigator} />
+                <Stack.Screen name={AppNavigators.SIGNUP} component={SignupNavigator} />
                 <Stack.Screen name={AppNavigators.TABBED_APP} component={TabNavigation} />
+                <Stack.Screen name={AppNavigators.SCHEDULE} component={ScheduleNavigator} />
             </Stack.Navigator>
         </NavigationContainer>
     );
