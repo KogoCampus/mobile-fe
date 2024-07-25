@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { View, ScrollView, SafeAreaView, TouchableOpacity } from 'react-native';
-import { FontAwesome } from '@expo/vector-icons';
+import { FontAwesome, AntDesign } from '@expo/vector-icons';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RouteProp, useNavigation, useRoute } from '@react-navigation/native';
 import * as SecureStore from 'expo-secure-store';
 import TimePicker from '@components/feature-schedule/TimePicker';
 import DayPicker from '@components/feature-schedule/DayPicker';
-import TextButton from '@components/ui/TextButton';
 import TypePicker from '@components/feature-schedule/TypePicker';
+import TextButton from '@components/ui/TextButton';
 import Typography from '@components/ui/Typography';
 import TextField from '@components/ui/TextField';
 import { AppScreens, AppScreensParamList } from '../../navigation/paramTypes';
@@ -162,8 +162,15 @@ const EditCourse: React.FC = function () {
 
     return (
         <SafeAreaView className="flex-1 bg-white">
-            <View className="flex-row items-center mb-4 px-4">
-                <Typography className="flex-1 text-lg font-bold">Edit Courses</Typography>
+            <View className="flex-row items-center justify-between w-full mb-5 px-4">
+                <TouchableOpacity onPress={() => navigation.goBack()} className="z-10">
+                    <AntDesign name="close" size={30} color="black" />
+                </TouchableOpacity>
+                <View style={{ position: 'absolute', left: 0, right: 0, zIndex: -1 }}>
+                    <Typography intent="subtitle" className="text-center">
+                        Edit Courses
+                    </Typography>
+                </View>
                 <TextButton intent="default" size="sm" onPress={handleSavePress}>
                     Save
                 </TextButton>

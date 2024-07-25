@@ -1,14 +1,13 @@
+import React, { useState } from 'react';
+import { NativeSyntheticEvent, TextInput, TextInputChangeEventData, TextInputProps } from 'react-native';
 import { cva, VariantProps } from 'class-variance-authority';
-import { useState } from 'react';
-import { NativeSyntheticEvent, TextInput, TextInputChangeEventData } from 'react-native';
-
 import { cn } from '../../../lib/utils';
 
 const defaultStyle = [
     'font-WantedSansMedium',
     'border-2',
     'bg-transparent',
-    'w-80',
+    'w-full',
     'rounded-md',
     'align-top',
     'h-24',
@@ -18,10 +17,10 @@ const defaultStyle = [
 const textArea = cva(defaultStyle, {
     variants: {
         intent: {
-            default: ['border-gray-300', 'border-'],
+            default: ['border-gray-300'],
             disabled: ['border-gray-300', 'bg-gray-300'],
             pressed: ['border-black'],
-            error: ['border-red-700', 'color-red-700'],
+            error: ['border-red-700', 'text-red-700'],
         },
     },
     defaultVariants: {
@@ -29,32 +28,40 @@ const textArea = cva(defaultStyle, {
     },
 });
 
-type textAreaProps = VariantProps<typeof textArea> & {
-    children?: string;
+type TextAreaProps = VariantProps<typeof textArea> & {
+    value?: string;
     placeholder?: string;
     className?: string;
-    onChange?: (e: NativeSyntheticEvent<TextInputChangeEventData>) => unknown;
+    onChange?: (e: NativeSyntheticEvent<TextInputChangeEventData>) => void;
+    onBlur?: TextInputProps['onBlur'];
+    onFocus?: TextInputProps['onFocus'];
+    onKeyPress?: TextInputProps['onKeyPress'];
     validate?: (current: string) => boolean;
 };
 
-const TextArea: React.FC<textAreaProps> = function ({
+const TextArea: React.FC<TextAreaProps> = function ({
     intent,
     className,
     placeholder,
+    value = '',
     onChange = () => null,
+    onBlur,
+    onFocus,
+    onKeyPress,
     validate = () => true,
 }) {
-    const [text, setText] = useState('');
+    const [text, setText] = useState(value);
     const [focus, setFocus] = useState(false);
     const [blur, setBlur] = useState(false);
     const [hasError, toggleError] = useState(false);
 
     const onChangeEvent = (e: NativeSyntheticEvent<TextInputChangeEventData>) => {
-        setText(e.nativeEvent.text);
-        if (!validate(text)) {
-            toggleError(false);
-        } else {
+        const newText = e.nativeEvent.text;
+        setText(newText);
+        if (!validate(newText)) {
             toggleError(true);
+        } else {
+            toggleError(false);
             onChange(e);
         }
     };
@@ -80,20 +87,21 @@ const TextArea: React.FC<textAreaProps> = function ({
             placeholder={placeholder}
             editable={intent !== 'disabled'}
             value={text}
-            onFocus={() => {
+            onFocus={e => {
                 setBlur(false);
                 setFocus(true);
+                if (onFocus) onFocus(e);
             }}
-            onBlur={() => {
+            onBlur={e => {
                 setBlur(true);
                 setFocus(false);
+                if (onBlur) onBlur(e);
             }}
             onChange={onChangeEvent}
+            onKeyPress={onKeyPress}
             className={cn(selectIntent())}
         />
     );
 };
 
 export default TextArea;
-
-// secureTextEntry <- for password input

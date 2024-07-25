@@ -11,12 +11,13 @@ const tagStyles = cva('flex-row items-center px-2 py-1 rounded-full bg-gray-200'
 type TagProps = VariantProps<typeof tagStyles> & {
     children: React.ReactNode;
     style?: ViewStyle;
+    className?: string;
     onPress?: () => void;
 };
 
-const Tag: React.FC<TagProps> = function ({ children, style, onPress }) {
+const Tag: React.FC<TagProps> = function ({ children, style, onPress, className }) {
     return (
-        <TouchableOpacity onPress={onPress} style={style} className={cn(tagStyles())}>
+        <TouchableOpacity onPress={onPress} style={style} className={cn(tagStyles(), className)}>
             <Text>#</Text>
             <Text style={{ marginRight: 5 }}>{children}</Text>
             <AntDesign name="close" size={12} color="black" />

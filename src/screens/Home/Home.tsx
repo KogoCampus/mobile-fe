@@ -4,8 +4,9 @@ import { Entypo, Ionicons } from '@expo/vector-icons';
 import Skeleton from '@components/ui/Skeleton';
 import Radio from '@components/ui/Radio';
 import Typography from '@components/ui/Typography';
+import AddButton from '@components/feature-post/AddButton';
 
-function Main(): JSX.Element {
+function Home(): JSX.Element {
     const [activeTab, setActiveTab] = useState('Following');
     const [filter, setFilter] = useState('SFU');
 
@@ -20,7 +21,7 @@ function Main(): JSX.Element {
     return (
         <SafeAreaView className="flex-1 bg-white">
             <View>
-                <View className="flex-row justify-between items-center p-4 bg-white">
+                <View className="flex-row justify-between items-center p-1 bg-white">
                     <View className="pl-2">
                         <Image source={require('../../assets/images/logo.png')} className="w-24 h-12" />
                     </View>
@@ -85,8 +86,9 @@ function Main(): JSX.Element {
                     </View>
                 );
             })()}
+            <AddButton />
         </SafeAreaView>
     );
 }
 
-export default Main;
+export default Home;

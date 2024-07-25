@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { View, ScrollView, SafeAreaView, TouchableOpacity, FlatList } from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RouteProp } from '@react-navigation/native';
+import { AntDesign } from '@expo/vector-icons';
 import Scheduler from '@components/feature-schedule/Schedular';
 import TextButton from '@components/ui/TextButton';
 import Typography from '@components/ui/Typography';
@@ -83,8 +84,15 @@ const EditSchedule: React.FC<EditScheduleProps> = function ({ navigation, route 
 
     return (
         <SafeAreaView className="flex-1 bg-white">
-            <View className="flex-row items-center mb-4 px-4">
-                <Typography className="flex-1 text-lg font-bold">Edit Schedule</Typography>
+            <View className="flex-row items-center justify-between w-full mb-5 px-4">
+                <TouchableOpacity onPress={() => navigation.goBack()} className="z-10">
+                    <AntDesign name="close" size={30} color="black" />
+                </TouchableOpacity>
+                <View style={{ position: 'absolute', left: 0, right: 0, zIndex: -1 }}>
+                    <Typography intent="subtitle" className="text-center">
+                        Edit Schedule
+                    </Typography>
+                </View>
                 <TextButton intent="default" size="sm" onPress={handleSavePress}>
                     Save
                 </TextButton>
