@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { View, TouchableOpacity, SafeAreaView, Text } from 'react-native';
+import { View, TouchableOpacity, SafeAreaView } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import Scheduler from '@components/feature-schedule/Schedular';
 import Skeleton from '@components/ui/Skeleton';
+import Typography from '@components/ui/Typography';
 import * as SecureStore from 'expo-secure-store';
 import { AppScreens, AppNavigators, AppScreensParamList } from '@navigation/paramTypes';
 import { Course } from './types';
@@ -71,10 +72,10 @@ const Schedule: React.FC = function () {
 
     return (
         <SafeAreaView className="flex-1 bg-white">
-            <View className="flex-1 px-0">
-                <View className="flex-row items-center mb-4 px-4">
-                    <Text className="flex-1 text-lg font-bold">My Schedule</Text>
-                    <TouchableOpacity className="ml-auto" onPress={handleEditPress}>
+            <View>
+                <View className="flex-row items-center justify-between w-full mb-5 pt-2.5 px-5">
+                    <Typography intent="subtitle">My Schedule</Typography>
+                    <TouchableOpacity onPress={handleEditPress} className="items-end">
                         <Ionicons name="settings-outline" size={24} color="black" />
                     </TouchableOpacity>
                 </View>
@@ -83,7 +84,9 @@ const Schedule: React.FC = function () {
                         <Skeleton intent="rounded" width={210} height={60} />
                     </View>
                 ) : (
-                    <Scheduler courses={courses} colors={themeColors} />
+                    <View className="m-0 p-0">
+                        <Scheduler courses={courses} colors={themeColors} />
+                    </View>
                 )}
             </View>
         </SafeAreaView>

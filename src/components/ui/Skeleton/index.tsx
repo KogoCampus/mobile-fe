@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from 'react';
-import { Animated } from 'react-native';
+import { Animated, ViewStyle } from 'react-native';
 import { cva, VariantProps } from 'class-variance-authority';
 import { cn } from '../../../lib/utils';
 
@@ -20,10 +20,11 @@ const skeleton = cva('bg-gray-300', {
 type SkeletonProps = VariantProps<typeof skeleton> & {
     width: number;
     height: number;
-    style?: object;
+    style?: ViewStyle;
+    className?: string;
 };
 
-const Skeleton: React.FC<SkeletonProps> = function ({ intent = 'text', width, height, style = {} }) {
+const Skeleton: React.FC<SkeletonProps> = function ({ intent = 'text', width, height, style = {}, className }) {
     const opacity = useRef(new Animated.Value(0.3)).current;
 
     useEffect(() => {
@@ -43,12 +44,12 @@ const Skeleton: React.FC<SkeletonProps> = function ({ intent = 'text', width, he
         ).start();
     }, [opacity]);
 
-    const baseStyle = {
+    const baseStyle: ViewStyle = {
         width,
         height,
     };
 
-    return <Animated.View style={[baseStyle, style, { opacity }]} className={cn(skeleton({ intent }))} />;
+    return <Animated.View style={[baseStyle, style, { opacity }]} className={cn(skeleton({ intent }), className)} />;
 };
 
 export default Skeleton;
