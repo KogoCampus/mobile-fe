@@ -1,20 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { View, TouchableOpacity, SafeAreaView } from 'react-native';
-// import { useNavigation } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 import { AntDesign } from '@expo/vector-icons';
 import Skeleton from '@components/ui/Skeleton';
 import Typography from '@components/ui/Typography';
-// import { StackNavigationProp } from '@react-navigation/stack';
-// import { AppScreens, AppScreensParamList } from '@navigation/paramTypes';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { AppScreens, AppScreensParamList } from '@navigation/paramTypes';
 
-function MyGroupList(): JSX.Element {
+const MyGroupList = function (): JSX.Element {
     const [isLoading] = useState(true);
     // const [isLoading, setIsLoading] = useState(true);
-    // const navigation = useNavigation<StackNavigationProp<AppScreensParamList, AppScreens.GROUPLIST_SCREEN>>();
+    const navigation = useNavigation<StackNavigationProp<AppScreensParamList, AppScreens.GROUPLIST_SCREEN>>();
 
     useEffect(() => {}, []);
 
-    const handlePress = () => {};
+    const handlePress = () => {
+        navigation.navigate(AppScreens.CREATEGROUP_SCREEN);
+    };
 
     return (
         <SafeAreaView className="flex-1 bg-white">
@@ -50,6 +52,6 @@ function MyGroupList(): JSX.Element {
             </View>
         </SafeAreaView>
     );
-}
+};
 
 export default MyGroupList;

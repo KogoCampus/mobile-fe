@@ -16,6 +16,9 @@ export enum AppScreens {
     EDIT_COURSE = 'EditCourse',
     ADD_COURSE = 'AddCourse',
     GROUPLIST_SCREEN = 'MyGroupList',
+    CREATEGROUP_SCREEN = 'CreateNewGroup',
+    CREATEPOST_SCREEN = 'CreateNewPost',
+    PROFILE_SCREEN = 'Profile',
 }
 
 // eslint-disable-next-line no-shadow
@@ -27,6 +30,7 @@ export enum AppNavigators {
     SIGNUP = 'SignupNavigator',
     SCHEDULE = 'ScheduleNavigator',
     GROUP = 'GroupNavigator',
+    PROFILE = 'ProfileNavigator',
 }
 
 export type AppScreensParamList = {
@@ -43,6 +47,9 @@ export type AppScreensParamList = {
     [AppScreens.EDIT_COURSE]: { colorTheme: string[] };
     [AppScreens.ADD_COURSE]: { colorTheme: string[] };
     [AppScreens.GROUPLIST_SCREEN]: undefined;
+    [AppScreens.CREATEGROUP_SCREEN]: undefined;
+    [AppScreens.CREATEPOST_SCREEN]: undefined;
+    [AppScreens.PROFILE_SCREEN]: undefined;
 } & { [key in AppNavigators]: undefined };
 
 export type AppScreenProps<T extends AppScreens | AppNavigators> = {
