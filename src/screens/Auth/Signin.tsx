@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { TouchableOpacity, View, Text } from 'react-native';
+import { View, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import TextButton from '@components/ui/TextButton';
@@ -63,10 +63,12 @@ const Signin: React.FC = function () {
                 </TextButton>
                 <View className="flex-row items-center mt-4">
                     <Typography intent="text" className="text-sm text-center mr-2">
-                        Don&apost have an account?
+                        Don&apos;t have an account?
                     </Typography>
                     <TouchableOpacity onPress={navigateToSignUp}>
-                        <Text className="font-bold text-xs text-black underline">Sign up</Text>
+                        <Typography intent="text" className="font-bold text-xs underline">
+                            Sign up
+                        </Typography>
                     </TouchableOpacity>
                 </View>
             </View>

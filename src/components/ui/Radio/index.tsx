@@ -1,6 +1,7 @@
 import React from 'react';
-import { TouchableOpacity, View, Text, ViewStyle } from 'react-native';
+import { TouchableOpacity, View } from 'react-native';
 import { cva, VariantProps } from 'class-variance-authority';
+import Typography from '../Typography';
 import { cn } from '../../../lib/utils';
 
 const radioStyles = cva('flex-row items-center', {
@@ -15,7 +16,7 @@ const radioStyles = cva('flex-row items-center', {
     },
 });
 
-const circleStyles = cva('w-4 h-4 rounded-full border-2', {
+const circleStyles = cva('w-3 h-3 rounded-full border-2', {
     variants: {
         selected: {
             true: 'border-green-500 bg-green-500',
@@ -31,14 +32,16 @@ type RadioProps = VariantProps<typeof radioStyles> & {
     label: string;
     selected: boolean;
     onPress: () => void;
-    style?: ViewStyle;
+    className?: string;
 };
 
-const Radio: React.FC<RadioProps> = function ({ label, selected, onPress, style }) {
+const Radio: React.FC<RadioProps> = function ({ label, selected, onPress, className }) {
     return (
-        <TouchableOpacity onPress={onPress} style={style} className={cn(radioStyles({ selected }))}>
+        <TouchableOpacity onPress={onPress} className={cn(radioStyles({ selected }), className)}>
             <View className={cn(circleStyles({ selected }))} />
-            <Text style={{ marginLeft: 5 }}>{label}</Text>
+            <Typography intent="subtext" className="ml-1">
+                {label}
+            </Typography>
         </TouchableOpacity>
     );
 };
