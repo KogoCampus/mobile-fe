@@ -12,7 +12,7 @@ function Profile(): JSX.Element {
     return (
         <SafeAreaView className="flex-1 bg-white">
             <View className="flex-1">
-                <View className="flex-row items-center justify-between w-full mb-5 pt-2.5 px-5">
+                <View className="flex-row items-center justify-between w-full p-5">
                     <Typography intent="subtitle">Profile</Typography>
                 </View>
                 <View className="flex-1 p-5 bg-white">

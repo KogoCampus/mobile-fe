@@ -73,7 +73,7 @@ const Schedule: React.FC = function () {
     return (
         <SafeAreaView className="flex-1 bg-white">
             <View>
-                <View className="flex-row items-center justify-between w-full mb-5 pt-2.5 px-5">
+                <View className="flex-row items-center justify-between w-full p-5">
                     <Typography intent="subtitle">My Schedule</Typography>
                     <TouchableOpacity onPress={handleEditPress} className="items-end">
                         <Ionicons name="settings-outline" size={24} color="black" />
