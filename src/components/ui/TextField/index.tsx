@@ -1,5 +1,11 @@
 import React, { useState } from 'react';
-import { TextInput, NativeSyntheticEvent, TextInputChangeEventData, TextInputKeyPressEventData } from 'react-native';
+import {
+    TextInput,
+    NativeSyntheticEvent,
+    TextInputChangeEventData,
+    TextInputKeyPressEventData,
+    TextInputFocusEventData,
+} from 'react-native';
 import { cva, VariantProps } from 'class-variance-authority';
 import { cn } from '../../../lib/utils';
 
@@ -24,6 +30,7 @@ type TextFieldProps = VariantProps<typeof textField> & {
     className?: string;
     value?: string;
     onChange?: (e: NativeSyntheticEvent<TextInputChangeEventData>) => void;
+    onFocus?: (e: NativeSyntheticEvent<TextInputFocusEventData>) => void;
     onKeyPress?: (e: NativeSyntheticEvent<TextInputKeyPressEventData>) => void;
     validate?: (current: string) => boolean;
 };
@@ -34,6 +41,7 @@ const TextField: React.FC<TextFieldProps> = function ({
     placeholder,
     value,
     onChange = () => null,
+    onFocus = () => null,
     onKeyPress = () => null,
     validate = () => true,
 }) {
@@ -50,6 +58,12 @@ const TextField: React.FC<TextFieldProps> = function ({
             toggleError(false);
             onChange(e);
         }
+    };
+
+    const onFocusEvent = (e: NativeSyntheticEvent<TextInputFocusEventData>) => {
+        setBlur(false);
+        setFocus(true);
+        onFocus(e);
     };
 
     const selectIntent = () => {
@@ -71,10 +85,7 @@ const TextField: React.FC<TextFieldProps> = function ({
             placeholder={placeholder}
             editable={intent !== 'disabled'}
             value={text}
-            onFocus={() => {
-                setBlur(false);
-                setFocus(true);
-            }}
+            onFocus={onFocusEvent}
             onBlur={() => {
                 setBlur(true);
                 setFocus(false);

@@ -1,14 +1,17 @@
+/* eslint-disable global-require */
 import React, { useState, useEffect } from 'react';
-import { View, TouchableOpacity, SafeAreaView, Image } from 'react-native';
+import { View, TouchableOpacity, SafeAreaView, Image, Modal } from 'react-native';
 import { Entypo, Ionicons } from '@expo/vector-icons';
 import Skeleton from '@components/ui/Skeleton';
 import Radio from '@components/ui/Radio';
 import Typography from '@components/ui/Typography';
 import AddButton from '@components/feature-post/AddButton';
+import SearchBar from '@components/feature-post/SearchBar';
 
 function Home(): JSX.Element {
     const [activeTab, setActiveTab] = useState('Following');
     const [filter, setFilter] = useState('SFU');
+    const [isSearchModalVisible, setIsSearchModalVisible] = useState(false);
 
     // const [isFeedLoaded, setFeedLoaded] = useState(false);
     // const [isTrendingLoaded, setTrendingLoaded] = useState(false);
@@ -16,6 +19,14 @@ function Home(): JSX.Element {
     const [isTrendingLoaded] = useState(false);
 
     useEffect(() => {}, []);
+
+    const handleSearchIconPress = () => {
+        setIsSearchModalVisible(true);
+    };
+
+    const handleSearchClose = () => {
+        setIsSearchModalVisible(false);
+    };
 
     /* eslint-disable global-require */
     return (
@@ -26,7 +37,7 @@ function Home(): JSX.Element {
                         <Image source={require('../../assets/images/logo.png')} className="w-24 h-12" />
                     </View>
                     <View className="flex-row items-center">
-                        <TouchableOpacity>
+                        <TouchableOpacity onPress={handleSearchIconPress}>
                             <Entypo name="magnifying-glass" size={24} color="black" />
                         </TouchableOpacity>
                         <TouchableOpacity>
@@ -87,6 +98,12 @@ function Home(): JSX.Element {
                 );
             })()}
             <AddButton />
+
+            <Modal visible={isSearchModalVisible} animationType="slide" onRequestClose={handleSearchClose}>
+                <SafeAreaView className="flex-1 bg-white">
+                    <SearchBar onGroupSelect={() => {}} hideSearchBar={handleSearchClose} />
+                </SafeAreaView>
+            </Modal>
         </SafeAreaView>
     );
 }

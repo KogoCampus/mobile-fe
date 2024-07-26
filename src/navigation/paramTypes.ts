@@ -19,6 +19,7 @@ export enum AppScreens {
     CREATEGROUP_SCREEN = 'CreateNewGroup',
     CREATEPOST_SCREEN = 'CreateNewPost',
     PROFILE_SCREEN = 'Profile',
+    SEARCHRESULT_SCREEN = 'SearchResult',
 }
 
 // eslint-disable-next-line no-shadow
@@ -50,6 +51,7 @@ export type AppScreensParamList = {
     [AppScreens.CREATEGROUP_SCREEN]: undefined;
     [AppScreens.CREATEPOST_SCREEN]: undefined;
     [AppScreens.PROFILE_SCREEN]: undefined;
+    [AppScreens.SEARCHRESULT_SCREEN]: { searchTerm: string };
 } & { [key in AppNavigators]: undefined };
 
 export type AppScreenProps<T extends AppScreens | AppNavigators> = {
