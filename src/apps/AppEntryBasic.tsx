@@ -4,7 +4,7 @@ import NetInfo from '@react-native-community/netinfo';
 import AppNavigation from '@navigation';
 import { AlertProvider } from '@components/ui/Alert/AlertContext';
 import withThemeFonts from './withThemeFonts';
-import { log } from '../lib/logger';
+import { log } from '../lib/logger/logger';
 // import log from '../lib/logger';
 
 onlineManager.setEventListener(setOnline =>
