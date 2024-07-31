@@ -11,6 +11,7 @@ export interface LogTransportOptions {
     date: Date;
     level: Level;
     context?: string | null;
+    event?: string | null;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     options?: any;
 }
@@ -20,7 +21,6 @@ export type LogTransport = (options: LogTransportOptions) => void;
 export interface LoggerConfig {
     levels?: LogLevelConfig;
     severity?: Level;
-
     transport?: LogTransport | LogTransport[];
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     transportOptions?: any;

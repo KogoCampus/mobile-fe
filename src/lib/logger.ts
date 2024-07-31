@@ -10,7 +10,7 @@ const log = createLogger({
         custom: 4,
     },
     severity: 'debug',
-    transport: consoleTransport,
+    transport: [consoleTransport],
     transportOptions: {
         colors: {
             info: 'blueBright',

@@ -47,7 +47,9 @@ class Logger {
 
     private context: string | null;
 
-    constructor(config: LoggerConfig, context: string | null = null) {
+    private event: string | null;
+
+    constructor(config: LoggerConfig, context: string | null = null, event: string | null = null) {
         this.levels = config.levels ?? defaultConfig.levels!;
         this.severity = this.levels[config.severity ?? 'debug'];
         if (!config.transport) {
@@ -59,6 +61,7 @@ class Logger {
         this.asyncFunc = config.asyncFunc ?? asyncFunc;
         this.enabledContexts = config.enabledContexts ?? [];
         this.context = context;
+        this.event = event;
 
         this.setupMethods();
     }
@@ -85,10 +88,15 @@ class Logger {
         }
     }
 
-    public extend(context: string): Logger {
+    public extend(context: string, event: string | null = null): Logger {
+        if (!context) {
+            throw new Error('Context is required.');
+        }
+
         if (!this.enabledContexts || !this.enabledContexts.includes(context)) {
             throw new Error(`Context ${context} is not enabled.`);
         }
+
         return new Logger(
             {
                 levels: this.levels,
@@ -100,6 +108,7 @@ class Logger {
                 enabledContexts: this.enabledContexts,
             },
             context,
+            event,
         );
     }
 }
