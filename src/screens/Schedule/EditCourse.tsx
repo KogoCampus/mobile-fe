@@ -10,6 +10,7 @@ import TypePicker from '@components/feature-schedule/TypePicker';
 import TextButton from '@components/ui/TextButton';
 import Typography from '@components/ui/Typography';
 import TextField from '@components/ui/TextField';
+import { log } from '@lib/utils';
 import { AppScreens, AppScreensParamList } from '../../navigation/paramTypes';
 
 interface Session {
@@ -54,7 +55,7 @@ const EditCourse: React.FC = function () {
                 setCourses(JSON.parse(coursesData));
             }
         } catch (error) {
-            console.error(error);
+            log.error(error);
         }
     };
 
@@ -62,7 +63,7 @@ const EditCourse: React.FC = function () {
         try {
             await SecureStore.setItemAsync('courses', JSON.stringify(courses));
         } catch (error) {
-            console.error(error);
+            log.error(error);
         }
     };
 

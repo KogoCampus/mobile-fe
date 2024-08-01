@@ -1,0 +1,13 @@
+{
+    "jwt": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNzA3ODQyMzMwLCJleHAiOjE3MTA0MzQzMzB9.DAnyYoM4Ve1DeIe7jlnEBtqEJ-3UdHdhAEe9PpsMPaI",
+    "user": {
+        "id": 2,
+        "username": "test",
+        "email": "test@gmail.com",
+        "provider": "local",
+        "confirmed": true,
+        "blocked": false,
+        "createdAt": "2024-02-13T16:38:50.442Z",
+        "updatedAt": "2024-02-13T16:38:50.442Z"
+    }
+}

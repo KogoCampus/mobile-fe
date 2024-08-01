@@ -1,0 +1,13 @@
+{
+    "id": 1,
+    "username": "kogo",
+    "email": "kogo@sfu.ca",
+    "provider": "local",
+    "confirmed": true,
+    "blocked": false,
+    "createdAt": "2024-03-20T04:11:11.086Z",
+    "updatedAt": "2024-03-20T04:11:11.086Z",
+    "school": {
+        "schoolName": "Simon Fraser University"
+    }
+}

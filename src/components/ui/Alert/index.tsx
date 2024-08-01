@@ -38,7 +38,7 @@ const getIcon = function (type: string) {
 };
 
 const Alert: React.FC<AlertProps> = function ({ message, type = 'info' }) {
-    const alertType = type || 'info';
+    const alertType = type ?? 'info';
 
     return (
         <View className={cn(alertStyles({ type: alertType }))}>

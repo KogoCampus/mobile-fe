@@ -1,0 +1,47 @@
+[
+    {
+        "courseName": "CMPT 363",
+        "sessions": [
+            {
+                "day": "Mon",
+                "startTime": "12:30",
+                "endTime": "13:20",
+                "type": "LEC"
+            },
+            {
+                "day": "Thu",
+                "startTime": "12:30",
+                "endTime": "14:20",
+                "type": "LEC"
+            }
+        ]
+    },
+    {
+        "courseName": "CMPT 365",
+        "sessions": [
+            {
+                "day": "Mon",
+                "startTime": "16:30",
+                "endTime": "19:20",
+                "type": "LEC"
+            }
+        ]
+    },
+    {
+        "courseName": "CMPT 318",
+        "sessions": [
+            {
+                "day": "Wed",
+                "startTime": "13:30",
+                "endTime": "14:20",
+                "type": "LEC"
+            },
+            {
+                "day": "Fri",
+                "startTime": "12:30",
+                "endTime": "14:20",
+                "type": "LEC"
+            }
+        ]
+    }
+]

@@ -1,15 +1,11 @@
 export type Level = 'debug' | 'info' | 'warn' | 'error' | string;
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export type Message = any;
+
 // log levels configuration
 export interface LogLevelConfig {
     [key: string]: number;
-}
-
-// eslint-disable-next-line no-shadow
-export enum Context {
-    API = 'api',
-    AUTH = 'auth',
-    // add more namespaces as needed
 }
 
 // log transport options

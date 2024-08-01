@@ -1,0 +1,40 @@
+{
+    "data": [
+        {
+            "id": 1,
+            "attributes": {
+                "name": "맞집추천 두개쟤",
+                "userCount": 123,
+                "createdAt": "2024-03-12T21:37:14.713Z",
+                "updatedAt": "2024-03-13T03:33:32.838Z",
+                "publishedAt": "2024-03-12T21:37:16.013Z",
+                "description": "밴쿠버 맛집 다  알려드림",
+                "icon": {
+                    "data": null
+                }
+            }
+        },
+        {
+            "id": 2,
+            "attributes": {
+                "name": "에셒 롤방",
+                "userCount": 1209,
+                "createdAt": "2024-03-12T21:37:14.713Z",
+                "updatedAt": "2024-03-13T03:33:32.838Z",
+                "publishedAt": "2024-03-12T21:37:16.013Z",
+                "description": "롤 내전 하실분들 들어오셈",
+                "icon": {
+                    "data": null
+                }
+            }
+        }
+    ],
+    "meta": {
+        "pagination": {
+            "page": 1,
+            "pageSize": 25,
+            "pageCount": 1,
+            "total": 2
+        }
+    }
+}

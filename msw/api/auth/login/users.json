@@ -1,0 +1,28 @@
+[
+    {
+        "jwt": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNzA3ODQyNDAyLCJleHAiOjE3MTA0MzQ0MDJ9.H9J1_b69uw8N0PIX347cAgWBuppwsgU7aoeqn4miuog",
+        "user": {
+            "id": 2,
+            "username": "test",
+            "email": "test@gmail.com",
+            "provider": "local",
+            "confirmed": true,
+            "blocked": false,
+            "createdAt": "2024-02-13T16:38:50.442Z",
+            "updatedAt": "2024-02-13T16:38:50.442Z"
+        }
+    },
+    {
+        "jwt": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNzA3ODQyNDEyLCJleHAiOjE3MTA0MzQ0MTJ9.J3_Qm0DEG9k6IuIW-hVWpQ_aADXHiarSKyy8vDi2koI",
+        "user": {
+            "id": 3,
+            "username": "test2",
+            "email": "test2@gmail.com",
+            "provider": "local",
+            "confirmed": true,
+            "blocked": false,
+            "createdAt": "2024-02-13T16:39:27.751Z",
+            "updatedAt": "2024-02-13T16:39:27.751Z"
+        }
+    }
+]

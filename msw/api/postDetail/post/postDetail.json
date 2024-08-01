@@ -1,0 +1,47 @@
+{
+    "data": [
+        {
+            "id": 1,
+            "attributes": {
+                "content": [
+                    {
+                        "type": "paragraph",
+                        "children": [
+                            {
+                                "type": "text",
+                                "text": "밴쿠버 일식 맛집 추천해주세요 멀어도 좋아요"
+                            }
+                        ]
+                    }
+                ],
+
+                "title": "밴쿠버 맛집 추천",
+                "numOfLikes": 13,
+                "numOfComments": 5,
+                "createdAt": "2024-02-27T02:50:20.382Z",
+                "updatedAt": "2024-03-02T07:58:48.023Z",
+                "publishedAt": "2024-02-27T02:50:35.019Z",
+                "authorSchoolName": "UBC",
+                "group": {
+                    "data": {
+                        "id": 2,
+                        "attributes": {
+                            "name": "하라랄랄",
+                            "createdAt": "2024-02-28T04:32:06.213Z",
+                            "updatedAt": "2024-02-28T04:33:01.265Z",
+                            "publishedAt": "2024-02-28T04:33:01.263Z"
+                        }
+                    }
+                }
+            }
+        }
+    ],
+    "meta": {
+        "pagination": {
+            "page": 1,
+            "pageSize": 25,
+            "pageCount": 1,
+            "total": 1
+        }
+    }
+}

@@ -1,0 +1,86 @@
+{
+    "data": [
+        {
+            "id": 1,
+            "attributes": {
+                "name": "밴쿠버 유학생 방",
+                "userCount": 100,
+                "createdAt": "2024-03-12T07:58:15.556Z",
+                "updatedAt": "2024-03-13T02:52:34.112Z",
+                "publishedAt": "2024-03-12T08:08:15.513Z",
+                "description": "밴쿠버에 있는 모든 대학교 학생들을 위한 소통방입니다^^",
+                "icon": {
+                    "data": {
+                        "id": 1,
+                        "attributes": {
+                            "name": "chick.png",
+                            "alternativeText": null,
+                            "caption": null,
+                            "width": 225,
+                            "height": 225,
+                            "formats": {
+                                "thumbnail": {
+                                    "name": "thumbnail_chick.png",
+                                    "hash": "thumbnail_chick_1f2f335568",
+                                    "ext": ".png",
+                                    "mime": "image/png",
+                                    "path": null,
+                                    "width": 156,
+                                    "height": 156,
+                                    "size": 15.66,
+                                    "url": "/uploads/thumbnail_chick_1f2f335568.png"
+                                }
+                            },
+                            "hash": "chick_1f2f335568",
+                            "ext": ".png",
+                            "mime": "image/png",
+                            "size": 4.42,
+                            "url": "/uploads/chick_1f2f335568.png",
+                            "previewUrl": null,
+                            "provider": "local",
+                            "provider_metadata": null,
+                            "createdAt": "2024-03-13T02:52:02.472Z",
+                            "updatedAt": "2024-03-13T02:52:02.472Z"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 2,
+            "attributes": {
+                "name": "Toronto_KR",
+                "userCount": 0,
+                "createdAt": "2024-03-12T21:37:14.713Z",
+                "updatedAt": "2024-03-13T03:33:32.838Z",
+                "publishedAt": "2024-03-12T21:37:16.013Z",
+                "description": "토론토 방",
+                "icon": {
+                    "data": null
+                }
+            }
+        },
+        {
+            "id": 3,
+            "attributes": {
+                "name": "Canada_KR",
+                "userCount": 200,
+                "createdAt": "2024-03-12T21:52:56.926Z",
+                "updatedAt": "2024-03-13T03:33:39.646Z",
+                "publishedAt": "2024-03-12T21:52:57.667Z",
+                "description": "캐나다 한인 방",
+                "icon": {
+                    "data": null
+                }
+            }
+        }
+    ],
+    "meta": {
+        "pagination": {
+            "page": 1,
+            "pageSize": 25,
+            "pageCount": 1,
+            "total": 3
+        }
+    }
+}

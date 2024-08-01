@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 import { NavigationContainer, NavigationContainerRef } from '@react-navigation/native';
 import { createStackNavigator, StackNavigationOptions } from '@react-navigation/stack';
+import { log } from '@lib/utils';
 import { AppNavigators, AppScreensParamList } from './paramTypes';
 import Onboarding from './navigators/Onboarding';
 import TabNavigation from './TabNavigation';
@@ -21,7 +22,7 @@ function AppNavigation(): JSX.Element {
 
     const handleNavigationStateChange = async () => {
         const currentRouteName = navigationContainerRef?.current?.getCurrentRoute()?.name;
-        console.log(`Screen: ${currentRouteName}`);
+        log.debug(`Screen: ${currentRouteName}`);
     };
 
     return (

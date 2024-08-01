@@ -1,0 +1,24 @@
+{
+    "data": [
+        {
+            "id": 1,
+            "name": "Scott"
+        },
+        {
+            "id": 1,
+            "name": "Louis"
+        },
+        {
+            "id": 1,
+            "name": "Kathy"
+        }
+    ],
+    "meta": {
+        "pagination": {
+            "page": 1,
+            "pageSize": 25,
+            "pageCount": 1,
+            "total": 3
+        }
+    }
+}

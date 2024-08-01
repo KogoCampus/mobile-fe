@@ -1,0 +1,8 @@
+[
+    {
+        "username": "test",
+        "email": "test@gmail.com",
+        "verification_code": "111111",
+        "email_token": "aaaaaabbbbbb"
+    }
+]

@@ -1,0 +1,86 @@
+[
+    {
+        "createdAt": "2024-06-04T06:51:17.000Z",
+        "id": 4,
+        "title": "술 마실 여성분 구해요",
+        "content": "남자 사절",
+        "updatedAt": "2024-06-04T06:51:17.000Z",
+        "publishedAt": "2024-06-04T06:51:17.000Z",
+        "group": {
+            "id": 2,
+            "name": "에셒 한인들 모여라",
+            "hasAddress": true,
+            "regionRestricted": false,
+            "enabled": true,
+            "description": null,
+            "userCount": 1,
+            "createdAt": "2024-06-04T06:45:45.003Z",
+            "updatedAt": "2024-06-04T06:45:45.003Z",
+            "publishedAt": "2024-06-04T06:45:45.003Z",
+            "isSchool": false
+        }
+    },
+    {
+        "createdAt": "2024-06-04T06:50:33.815Z",
+        "id": 3,
+        "title": "When is the final exam dates out",
+        "content": "i need to know",
+        "updatedAt": "2024-06-04T06:50:33.815Z",
+        "publishedAt": "2024-06-04T06:50:33.815Z",
+        "group": {
+            "id": 1,
+            "name": "SFU",
+            "hasAddress": true,
+            "regionRestricted": false,
+            "enabled": true,
+            "description": null,
+            "userCount": 1,
+            "createdAt": "2024-06-04T06:45:17.442Z",
+            "updatedAt": "2024-06-04T06:45:17.442Z",
+            "publishedAt": "2024-06-04T06:45:17.442Z",
+            "isSchool": true
+        }
+    },
+    {
+        "createdAt": "2024-06-04T06:49:34.838Z",
+        "id": 2,
+        "title": "Lets go on strike",
+        "content": "lets go on strike so i dont have to do my midterm",
+        "updatedAt": "2024-06-04T06:49:34.838Z",
+        "publishedAt": "2024-06-04T06:49:34.838Z",
+        "group": {
+            "id": 1,
+            "name": "SFU",
+            "hasAddress": true,
+            "regionRestricted": false,
+            "enabled": true,
+            "description": null,
+            "userCount": 1,
+            "createdAt": "2024-06-04T06:45:17.442Z",
+            "updatedAt": "2024-06-04T06:45:17.442Z",
+            "publishedAt": "2024-06-04T06:45:17.442Z",
+            "isSchool": true
+        }
+    },
+    {
+        "createdAt": "2024-06-04T06:47:58.080Z",
+        "id": 1,
+        "title": "쓰던 코드 다 날릴뻔한 썰푼다 ",
+        "content": "한강으로 숨참고 럽다이브 할뻔",
+        "updatedAt": "2024-06-04T06:47:58.080Z",
+        "publishedAt": "2024-06-04T06:47:58.080Z",
+        "group": {
+            "id": 2,
+            "name": "에셒 한인들 모여라",
+            "hasAddress": true,
+            "regionRestricted": false,
+            "enabled": true,
+            "description": null,
+            "userCount": 1,
+            "createdAt": "2024-06-04T06:45:45.003Z",
+            "updatedAt": "2024-06-04T06:45:45.003Z",
+            "publishedAt": "2024-06-04T06:45:45.003Z",
+            "isSchool": false
+        }
+    }
+]

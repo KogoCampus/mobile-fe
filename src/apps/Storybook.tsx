@@ -1,17 +1,15 @@
 import { AlertProvider } from '@components/ui/Alert/AlertContext';
-import { useEffect } from 'react';
 import SbView from '../../.storybook';
-import withThemeFonts from './withThemeFonts';
+import ThemeFontProvider from './providers/ThemeFontProvider';
 
 function AppEntry(): JSX.Element | null {
-    useEffect(() => {
-        async function initialize() {
-            console.log('App Initialized.');
-        }
-        initialize();
-    }, []);
-
-    return <AlertProvider>{withThemeFonts(SbView)({})}</AlertProvider>;
+    return (
+        <ThemeFontProvider>
+            <AlertProvider>
+                <SbView />
+            </AlertProvider>
+        </ThemeFontProvider>
+    );
 }
 
 export default AppEntry;

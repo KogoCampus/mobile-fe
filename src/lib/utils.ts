@@ -3,11 +3,10 @@ import { twMerge } from 'tailwind-merge';
 import createLogger from './logger/index';
 import consoleTransport from './logger/transports/consoleTransport';
 
-export function cn(...inputs: ClassValue[]): string {
-    return twMerge(clsx(inputs));
-}
-
-const log = createLogger({
+/**
+ * Logger
+ */
+const logger = createLogger({
     levels: {
         debug: 0,
         info: 1,
@@ -31,4 +30,11 @@ const log = createLogger({
     enabledContexts: ['api', 'auth'],
 });
 
-export { log };
+/**
+ * Tailwind Merge
+ */
+function cn(...inputs: ClassValue[]): string {
+    return twMerge(clsx(inputs));
+}
+
+export { logger as log, cn };

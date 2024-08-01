@@ -1,4 +1,4 @@
-import { Level, LogLevelConfig, LogTransport, LoggerConfig, Context } from './loggerTypes';
+import { Level, LogLevelConfig, LogTransport, LoggerConfig, Message } from './loggerTypes';
 import consoleTransport from './transports/consoleTransport';
 
 const defaultConfig: LoggerConfig = {
@@ -15,7 +15,7 @@ const defaultConfig: LoggerConfig = {
 const asyncFunc = (cb: Function) => setTimeout(cb, 0);
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const stringifyFunc = (msg: any): string => {
+const stringifyFunc = (msg: Message): string => {
     if (typeof msg === 'string') return msg;
     if (typeof msg === 'function') return `[function ${msg.name}]`;
     if (msg?.stack && msg?.message) return msg.message;
@@ -58,8 +58,8 @@ class Logger {
         this.async = config.async ?? false;
         this.asyncFunc = config.asyncFunc ?? asyncFunc;
         this.enabledContexts = config.enabledContexts ?? [];
-        this.context = context;
 
+        this.context = context;
         this.setupMethods();
     }
 
@@ -69,8 +69,7 @@ class Logger {
         });
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    private log(level: Level, ...messages: any[]) {
+    private log(level: Level, ...messages: Message[]) {
         if (this.levels[level] < this.levels[this.severity]) return;
 
         const date = new Date();
@@ -85,7 +84,17 @@ class Logger {
         }
     }
 
-    public ns(context: string | Context): Logger {
+    public extendConfig(config: LoggerConfig) {
+        this.levels = config.levels ?? this.levels;
+        this.severity = this.levels[config.severity ?? this.severity];
+        this.transport = config.transport ?? this.transport;
+        this.transportOptions = config.transportOptions ?? this.transportOptions;
+        this.async = config.async ?? this.async;
+        this.asyncFunc = config.asyncFunc ?? this.asyncFunc;
+        this.enabledContexts = config.enabledContexts ?? this.enabledContexts;
+    }
+
+    public ns(context: string): Logger {
         if (!context) {
             throw new Error('Context is required.');
         }

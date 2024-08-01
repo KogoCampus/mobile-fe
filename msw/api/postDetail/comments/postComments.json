@@ -1,0 +1,90 @@
+{
+    "data": [
+        {
+            "id": 1,
+            "attributes": {
+                "content": "어디사는몇살~",
+                "numOfLikes": 10,
+                "createdAt": "2024-03-01T12:34:56.789Z",
+                "updatedAt": "2024-03-01T13:45:67.890Z",
+                "authorName": "익명",
+                "replyComment": {
+                    "data": [
+                        {
+                            "id": 2,
+                            "attributes": {
+                                "content": "신고할게요",
+                                "numOfLikes": 3,
+                                "createdAt": "2024-03-01T14:23:45.678Z",
+                                "updatedAt": "2024-03-01T15:34:56.789Z",
+                                "authorName": "익명"
+                            }
+                        },
+                        {
+                            "id": 3,
+                            "attributes": {
+                                "content": "ㄷㄷ",
+                                "numOfLikes": 5,
+                                "createdAt": "2024-03-01T16:45:12.345Z",
+                                "updatedAt": "2024-03-01T17:56:23.456Z",
+                                "authorName": "익명"
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": 2,
+            "attributes": {
+                "content": "댓글입니다",
+                "numOfLikes": 10,
+                "createdAt": "2024-03-01T12:34:56.789Z",
+                "updatedAt": "2024-03-01T13:45:67.890Z",
+                "authorName": "익명",
+                "replyComment": {
+                    "data": [
+                        {
+                            "id": 2,
+                            "attributes": {
+                                "content": "대댓글입니다",
+                                "numOfLikes": 3,
+                                "createdAt": "2024-03-01T14:23:45.678Z",
+                                "updatedAt": "2024-03-01T15:34:56.789Z",
+                                "authorName": "익명"
+                            }
+                        },
+                        {
+                            "id": 3,
+                            "attributes": {
+                                "content": "퇴근하고싶다",
+                                "numOfLikes": 5,
+                                "createdAt": "2024-03-01T16:45:12.345Z",
+                                "updatedAt": "2024-03-01T17:56:23.456Z",
+                                "authorName": "익명"
+                            }
+                        },
+                        {
+                            "id": 3,
+                            "attributes": {
+                                "content": "오늘도 퇴근하고싶다",
+                                "numOfLikes": 5,
+                                "createdAt": "2024-03-01T16:45:12.345Z",
+                                "updatedAt": "2024-03-01T17:56:23.456Z",
+                                "authorName": "익명"
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    ],
+    "meta": {
+        "pagination": {
+            "page": 1,
+            "pageSize": 25,
+            "pageCount": 1,
+            "total": 2
+        }
+    }
+}

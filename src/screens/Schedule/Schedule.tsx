@@ -6,6 +6,7 @@ import { StackNavigationProp } from '@react-navigation/stack';
 import Scheduler from '@components/feature-schedule/Schedular';
 import Skeleton from '@components/ui/Skeleton';
 import Typography from '@components/ui/Typography';
+import { log } from '@lib/utils';
 import * as SecureStore from 'expo-secure-store';
 import { AppScreens, AppNavigators, AppScreensParamList } from '@navigation/paramTypes';
 import { Course } from './types';
@@ -49,7 +50,7 @@ const Schedule: React.FC = function () {
                 setSelectedTheme(theme);
             }
         } catch (error) {
-            console.error(error);
+            log.error(error);
         }
     };
 
@@ -60,7 +61,7 @@ const Schedule: React.FC = function () {
                 setCourses(JSON.parse(coursesData));
             }
         } catch (error) {
-            console.error(error);
+            log.error(error);
         } finally {
             setIsLoading(false);
         }

@@ -28,6 +28,12 @@ module.exports = {
           }
         }
     },
+    overrides: [{
+        files: ["*.test.ts", "*.test.tsx", "*.test.js"],
+        rules: {
+            'testing-library/no-debugging-utils': 1,
+        }
+    }],
     rules: {
         'linebreak-style': 'off',
         'func-names': 0,
@@ -42,6 +48,7 @@ module.exports = {
         'react/require-default-props': 0,
         'react/no-array-index-key': 0,
         'testing-library/no-unnecessary-act': 0,
+        'testing-library/no-debugging-utils': 0,
         'react/jsx-filename-extension': [
             1,
             {

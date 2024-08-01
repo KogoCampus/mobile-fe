@@ -1,0 +1,264 @@
+{
+    "data": [
+        {
+            "id": 1,
+            "attributes": {
+                "content": [
+                    {
+                        "type": "paragraph",
+                        "children": [
+                            {
+                                "type": "text",
+                                "text": "밴쿠버 일식 맛집 추천해주세요 멀어도 좋아요"
+                            }
+                        ]
+                    }
+                ],
+
+                "title": "밴쿠버 맛집 추천",
+                "numOfLikes": 13,
+                "numOfComments": 5,
+                "createdAt": "2024-02-27T02:50:20.382Z",
+                "updatedAt": "2024-03-02T07:58:48.023Z",
+                "publishedAt": "2024-02-27T02:50:35.019Z",
+                "authorSchoolName": "UBC",
+                "group": {
+                    "data": {
+                        "id": 2,
+                        "attributes": {
+                            "name": "group1",
+                            "createdAt": "2024-02-28T04:32:06.213Z",
+                            "updatedAt": "2024-02-28T04:33:01.265Z",
+                            "publishedAt": "2024-02-28T04:33:01.263Z"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 3,
+            "attributes": {
+                "content": [
+                    {
+                        "type": "paragraph",
+                        "children": [
+                            {
+                                "type": "text",
+                                "text": "컴싸 전공 한국인 친구 구해요 장기매매X 보험권유X"
+                            }
+                        ]
+                    }
+                ],
+                "title": "컴싸 친구 구해요",
+                "createdAt": "2024-02-27T02:50:20.382Z",
+                "updatedAt": "2024-03-02T07:58:48.023Z",
+                "publishedAt": "2024-02-27T02:50:35.019Z",
+                "group": {
+                    "data": {
+                        "id": 2,
+                        "attributes": {
+                            "name": "group1",
+                            "createdAt": "2024-02-28T04:32:06.213Z",
+                            "updatedAt": "2024-02-28T04:33:01.265Z",
+                            "publishedAt": "2024-02-28T04:33:01.263Z"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 4,
+            "attributes": {
+                "content": [
+                    {
+                        "type": "paragraph",
+                        "children": [
+                            {
+                                "type": "text",
+                                "text": "학교 식당중 어디가 젤 맛있나요"
+                            }
+                        ]
+                    }
+                ],
+                "title": "학교에서 먹을만한 식당",
+                "createdAt": "2024-02-27T02:50:20.382Z",
+                "updatedAt": "2024-03-02T07:58:48.023Z",
+                "publishedAt": "2024-02-27T02:50:35.019Z",
+                "group": {
+                    "data": {
+                        "id": 2,
+                        "attributes": {
+                            "name": "group1",
+                            "createdAt": "2024-02-28T04:32:06.213Z",
+                            "updatedAt": "2024-02-28T04:33:01.265Z",
+                            "publishedAt": "2024-02-28T04:33:01.263Z"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 2,
+            "attributes": {
+                "content": [
+                    {
+                        "type": "paragraph",
+                        "children": [
+                            {
+                                "type": "text",
+                                "text": "이거 왜 돌아가는거지.."
+                            }
+                        ]
+                    }
+                ],
+                "title": "허허",
+                "createdAt": "2024-02-28T04:32:38.709Z",
+                "updatedAt": "2024-02-28T20:41:39.574Z",
+                "publishedAt": "2024-02-28T04:33:05.516Z",
+                "group": {
+                    "data": {
+                        "id": 1,
+                        "attributes": {
+                            "name": "group1",
+                            "createdAt": "2024-02-28T04:31:54.744Z",
+                            "updatedAt": "2024-02-28T04:32:50.183Z",
+                            "publishedAt": "2024-02-28T04:32:50.181Z"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 10,
+            "attributes": {
+                "content": [
+                    {
+                        "type": "paragraph",
+                        "children": [
+                            {
+                                "type": "text",
+                                "text": "에셒"
+                            }
+                        ]
+                    }
+                ],
+                "title": "에셒",
+                "createdAt": "2024-02-28T04:32:38.709Z",
+                "updatedAt": "2024-02-28T20:41:39.574Z",
+                "publishedAt": "2024-02-28T04:33:05.516Z",
+                "group": {
+                    "data": {
+                        "id": 5,
+                        "attributes": {
+                            "name": "Simon Fraser University",
+                            "createdAt": "2024-02-28T04:31:54.744Z",
+                            "updatedAt": "2024-02-28T04:32:50.183Z",
+                            "publishedAt": "2024-02-28T04:32:50.181Z"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 11,
+            "attributes": {
+                "content": [
+                    {
+                        "type": "paragraph",
+                        "children": [
+                            {
+                                "type": "text",
+                                "text": "와 ㅎㅎ"
+                            }
+                        ]
+                    }
+                ],
+                "title": "허허",
+                "createdAt": "2024-02-28T04:32:38.709Z",
+                "updatedAt": "2024-02-28T20:41:39.574Z",
+                "publishedAt": "2024-02-28T04:33:05.516Z",
+                "group": {
+                    "data": {
+                        "id": 5,
+                        "attributes": {
+                            "name": "Simon Fraser University",
+                            "createdAt": "2024-02-28T04:31:54.744Z",
+                            "updatedAt": "2024-02-28T04:32:50.183Z",
+                            "publishedAt": "2024-02-28T04:32:50.181Z"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 12,
+            "attributes": {
+                "content": [
+                    {
+                        "type": "paragraph",
+                        "children": [
+                            {
+                                "type": "text",
+                                "text": "이거만 하고 자야지"
+                            }
+                        ]
+                    }
+                ],
+                "title": "재밌다",
+                "createdAt": "2024-02-28T04:32:38.709Z",
+                "updatedAt": "2024-02-28T20:41:39.574Z",
+                "publishedAt": "2024-02-28T04:33:05.516Z",
+                "group": {
+                    "data": {
+                        "id": 5,
+                        "attributes": {
+                            "name": "Simon Fraser University",
+                            "createdAt": "2024-02-28T04:31:54.744Z",
+                            "updatedAt": "2024-02-28T04:32:50.183Z",
+                            "publishedAt": "2024-02-28T04:32:50.181Z"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 13,
+            "attributes": {
+                "content": [
+                    {
+                        "type": "paragraph",
+                        "children": [
+                            {
+                                "type": "text",
+                                "text": "오늘 하루종일 코드만썻네 허허"
+                            }
+                        ]
+                    }
+                ],
+                "title": "헤이헤이",
+                "createdAt": "2024-02-28T04:32:38.709Z",
+                "updatedAt": "2024-02-28T20:41:39.574Z",
+                "publishedAt": "2024-02-28T04:33:05.516Z",
+                "group": {
+                    "data": {
+                        "id": 5,
+                        "attributes": {
+                            "name": "Simon Fraser University",
+                            "createdAt": "2024-02-28T04:31:54.744Z",
+                            "updatedAt": "2024-02-28T04:32:50.183Z",
+                            "publishedAt": "2024-02-28T04:32:50.181Z"
+                        }
+                    }
+                }
+            }
+        }
+    ],
+    "meta": {
+        "pagination": {
+            "page": 1,
+            "pageSize": 25,
+            "pageCount": 1,
+            "total": 2
+        }
+    }
+}

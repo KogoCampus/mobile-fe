@@ -1,0 +1,32 @@
+{
+    "data": [
+        {
+            "id": 1,
+            "attributes": {
+                "schoolEmailDomain": "sfu.ca",
+                "schoolName": "Simon Fraser University",
+                "createdAt": "2024-03-12T08:54:39.892Z",
+                "updatedAt": "2024-03-12T08:54:41.221Z",
+                "publishedAt": "2024-03-12T08:54:41.218Z"
+            }
+        },
+        {
+            "id": 2,
+            "attributes": {
+                "schoolEmailDomain": "ubc.ca",
+                "schoolName": "University of British Columbia",
+                "createdAt": "2024-03-12T08:54:51.759Z",
+                "updatedAt": "2024-03-12T08:54:52.456Z",
+                "publishedAt": "2024-03-12T08:54:52.453Z"
+            }
+        }
+    ],
+    "meta": {
+        "pagination": {
+            "page": 1,
+            "pageSize": 25,
+            "pageCount": 1,
+            "total": 2
+        }
+    }
+}

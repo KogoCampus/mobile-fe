@@ -7,17 +7,15 @@ module.exports = function (context, moduleName, platform) {
     let module;
     if (moduleName === moduleAlias.appEntry) {
         switch (process.env.APP_ENTRY) {
+            case 'msw':
+                module = context.resolveRequest(context, `@apps/AppEntryWithMSW`, platform);
+                break;
             case 'storybook':
                 module = context.resolveRequest(context, `@apps/Storybook`, platform);
                 break;
             default:
-                module = context.resolveRequest(context, `@apps/AppEntryBasic`, platform);
+                module = context.resolveRequest(context, `@apps/AppEntry`, platform);
                 break;
-        }
-    }
-
-    if (moduleName === moduleAlias.rootNavigator) {
-        switch (process.env.ROOT_NAVIGATOR) {
         }
     }
 

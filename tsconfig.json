@@ -1,6 +1,6 @@
 {
   "extends": "expo/tsconfig.base",
-  "include": ["**/*.tsx", "**/*.ts", "**/*.d.ts"],
+  "include": ["**/*.tsx", "**/*.ts", "**/*.d.ts", "src/lib/moduleResolver.js"],
   "exclude": ["node_modules"],
   "compilerOptions": {
     "strict": true,

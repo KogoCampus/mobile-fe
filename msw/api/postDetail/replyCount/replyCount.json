@@ -1,0 +1,23 @@
+{
+    "data": [
+        {
+            "id": 1,
+            "attributes": {
+                "count": [
+                    { "commentId": 1, "replyCount": 2 },
+                    { "commentId": 2, "replyCount": 0 },
+                    { "commentId": 3, "replyCount": 5 },
+                    { "commentId": 4, "replyCount": 1 }
+                ]
+            }
+        }
+    ],
+    "meta": {
+        "pagination": {
+            "page": 1,
+            "pageSize": 25,
+            "pageCount": 1,
+            "total": 1
+        }
+    }
+}

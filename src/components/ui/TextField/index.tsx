@@ -45,7 +45,7 @@ const TextField: React.FC<TextFieldProps> = function ({
     onKeyPress = () => null,
     validate = () => true,
 }) {
-    const [text, setText] = useState(value || '');
+    const [text, setText] = useState(value ?? '');
     const [focus, setFocus] = useState(false);
     const [blur, setBlur] = useState(false);
     const [hasError, toggleError] = useState(false);

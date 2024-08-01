@@ -85,6 +85,7 @@ const consoleTransport: LogTransport = (props: LogTransportOptions) => {
     } else {
         msg = `${date} | ${props.level.toUpperCase()} : ${props.message}`;
     }
+    // eslint-disable-next-line no-console
     console.log(msg.trim());
 };
 

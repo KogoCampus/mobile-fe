@@ -1,0 +1,40 @@
+{
+    "data": [
+        {
+            "id": 2,
+            "attributes": {
+                "name": "Toronto_KR",
+                "userCount": 0,
+                "createdAt": "2024-03-12T21:37:14.713Z",
+                "updatedAt": "2024-03-13T03:33:32.838Z",
+                "publishedAt": "2024-03-12T21:37:16.013Z",
+                "description": "토론토 방",
+                "icon": {
+                    "data": null
+                }
+            }
+        },
+        {
+            "id": 3,
+            "attributes": {
+                "name": "Canada_KR",
+                "userCount": 200,
+                "createdAt": "2024-03-12T21:52:56.926Z",
+                "updatedAt": "2024-03-13T03:33:39.646Z",
+                "publishedAt": "2024-03-12T21:52:57.667Z",
+                "description": "캐나다 한인 방",
+                "icon": {
+                    "data": null
+                }
+            }
+        }
+    ],
+    "meta": {
+        "pagination": {
+            "page": 1,
+            "pageSize": 25,
+            "pageCount": 1,
+            "total": 2
+        }
+    }
+}

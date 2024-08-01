@@ -49,10 +49,10 @@ const SearchField = forwardRef<TextInput, SearchFieldProps>(
         },
         ref,
     ) => {
-        const [text, setText] = useState(value || '');
+        const [text, setText] = useState(value ?? '');
 
         useEffect(() => {
-            setText(value || '');
+            setText(value ?? '');
         }, [value]);
 
         const [focus, setFocus] = useState(false);
