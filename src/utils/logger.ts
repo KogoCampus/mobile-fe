@@ -1,5 +1,5 @@
-import createLogger from './index';
-import consoleTransport from './transports/consoleTransport';
+import createLogger from '../lib/logger/index';
+import consoleTransport from '../lib/logger/transports/consoleTransport';
 
 const log = createLogger({
     levels: {
