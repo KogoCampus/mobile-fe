@@ -4,7 +4,7 @@ import NetInfo from '@react-native-community/netinfo';
 import AppNavigation from '@navigation';
 import { AlertProvider } from '@components/ui/Alert/AlertContext';
 import withThemeFonts from './withThemeFonts';
-import log from '../lib/utils';
+import { log } from '../lib/utils';
 import { Context } from '../lib/logger/loggerTypes';
 
 const al = log.ns(Context.AUTH);

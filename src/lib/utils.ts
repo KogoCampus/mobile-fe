@@ -31,4 +31,4 @@ const log = createLogger({
     enabledContexts: ['api', 'auth'],
 });
 
-export default log;
+export { log };
