@@ -1,0 +1,36 @@
+export type Level = 'debug' | 'info' | 'warn' | 'error' | string;
+
+// log levels configuration
+export interface LogLevelConfig {
+    [key: string]: number;
+}
+
+// eslint-disable-next-line no-shadow
+export enum Context {
+    API = 'api',
+    AUTH = 'auth',
+    // add more namespaces as needed
+}
+
+// log transport options
+export interface LogTransportOptions {
+    message: string;
+    date: Date;
+    level: Level;
+    context?: string | null;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    options?: any;
+}
+
+export type LogTransport = (options: LogTransportOptions) => void;
+
+export interface LoggerConfig {
+    levels?: LogLevelConfig;
+    severity?: Level;
+    transport?: LogTransport | LogTransport[];
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    transportOptions?: any;
+    async?: boolean;
+    asyncFunc?: Function;
+    enabledContexts?: string[] | null;
+}
