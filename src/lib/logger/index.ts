@@ -1,4 +1,4 @@
-import { Level, LogLevelConfig, LogTransport, LoggerConfig } from './loggerTypes';
+import { Level, LogLevelConfig, LogTransport, LoggerConfig, Context } from './loggerTypes';
 import consoleTransport from './transports/consoleTransport';
 
 const defaultConfig: LoggerConfig = {
@@ -47,9 +47,7 @@ class Logger {
 
     private context: string | null;
 
-    private event: string | null;
-
-    constructor(config: LoggerConfig, context: string | null = null, event: string | null = null) {
+    constructor(config: LoggerConfig, context: string | null = null) {
         this.levels = config.levels ?? defaultConfig.levels!;
         this.severity = this.levels[config.severity ?? 'debug'];
         if (!config.transport) {
@@ -61,7 +59,6 @@ class Logger {
         this.asyncFunc = config.asyncFunc ?? asyncFunc;
         this.enabledContexts = config.enabledContexts ?? [];
         this.context = context;
-        this.event = event;
 
         this.setupMethods();
     }
@@ -88,7 +85,7 @@ class Logger {
         }
     }
 
-    public extend(context: string, event: string | null = null): Logger {
+    public ns(context: string | Context): Logger {
         if (!context) {
             throw new Error('Context is required.');
         }
@@ -108,7 +105,6 @@ class Logger {
                 enabledContexts: this.enabledContexts,
             },
             context,
-            event,
         );
     }
 }

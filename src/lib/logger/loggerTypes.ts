@@ -5,13 +5,19 @@ export interface LogLevelConfig {
     [key: string]: number;
 }
 
+// eslint-disable-next-line no-shadow
+export enum Context {
+    API = 'api',
+    AUTH = 'auth',
+    // add more namespaces as needed
+}
+
 // log transport options
 export interface LogTransportOptions {
     message: string;
     date: Date;
     level: Level;
     context?: string | null;
-    event?: string | null;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     options?: any;
 }

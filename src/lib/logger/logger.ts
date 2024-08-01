@@ -19,16 +19,10 @@ const log = createLogger({
         },
         contextColors: {
             api: 'grey',
-            db: 'magenta',
+            auth: 'magenta',
         },
     },
-    enabledContexts: ['api', 'db'],
+    enabledContexts: ['api', 'auth'],
 });
 
 export default log;
-
-// create any logger instance
-const apiLogger = log.extend('api');
-const dbLogger = log.extend('db');
-
-export { log, apiLogger, dbLogger };
