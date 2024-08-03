@@ -77,7 +77,8 @@ const IconButton: React.FC<iconButtonProps> = function ({
             onPress={onPress}
             onPressIn={() => setActive(true)}
             onPressOut={() => setActive(false)}
-            activeOpacity={0.5}>
+            activeOpacity={0.5}
+            testID="iconButton">
             <FontAwesome6
                 name={iconName}
                 size={setSize()}
