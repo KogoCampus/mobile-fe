@@ -19,7 +19,7 @@ export const handlers = [
       ctx.json({
         status: 200,
         data: posts,
-        message: 'Posts fetched successfully',
+        message: '',
       })
     );
   }),
@@ -33,7 +33,7 @@ export const handlers = [
       ctx.json({
         status: 200,
         data: groups,
-        message: 'Groups fetched successfully',
+        message: '',
       })
     );
   }),
@@ -45,7 +45,7 @@ export const handlers = [
       ctx.json({
         status: 200,
         data: myposts,
-        message: 'Groups fetched successfully',
+        message: '',
       })
     );
   }),
@@ -68,7 +68,7 @@ export const handlers = [
       ctx.json({
         status: 200,
         data: trendingPosts,
-        message: 'Trending posts fetched successfully',
+        message: '',
       })
     );
   }),

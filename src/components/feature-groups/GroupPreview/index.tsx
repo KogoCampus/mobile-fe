@@ -19,7 +19,7 @@ const GroupPreview: React.FC<GroupPreviewProps> = function ({
                 <View className="w-11 h-11 rounded-full border border-black justify-center items-center mr-2.5">
                     <Image
                         source={typeof imageLink === 'string' ? { uri: imageLink } : imageLink}
-                        className="w-6 h-6"
+                        className="w-8 h-8 rounded-full"
                     />
                 </View>
             </View>

@@ -37,7 +37,7 @@ const MyGroupList: React.FC<MyGroupListProps> = ({ onGroupPress }) => {
             key={item.id}
             width={390}
             height={74}
-            imageLink={item.profileImage?.url || ''}
+            imageLink={item.profileImage.url}
             groupName={item.topicName}
             groupDescription={item.description}
             numOfMembers={item.userCount}

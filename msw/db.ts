@@ -53,8 +53,8 @@ export const seedDb = () => {
       topicName: faker.company.name(),
       description: faker.lorem.sentence(),
       tags: [faker.lorem.word(), faker.lorem.word()],
-      profileImage: db.profileImage.create(),
       userCount: faker.number.int({ min: 10, max: 1000 }),
+      profileImage: db.profileImage.create(),
     });
   
     for (let i = 0; i < 5; i++) {
@@ -63,8 +63,8 @@ export const seedDb = () => {
         topicName: faker.company.name(),
         description: faker.lorem.sentence(),
         tags: [faker.lorem.word(), faker.lorem.word()],
-        profileImage: db.profileImage.create(),
         userCount: faker.number.int({ min: 10, max: 1000 }),
+        profileImage: db.profileImage.create(),
       });
     }
   
