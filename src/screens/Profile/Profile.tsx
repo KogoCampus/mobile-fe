@@ -3,10 +3,21 @@ import { View, Image, SafeAreaView, TouchableOpacity } from 'react-native';
 import { Zocial, FontAwesome6, Ionicons } from '@expo/vector-icons';
 import Typography from '@components/ui/Typography';
 import Switch from '@components/ui/Switch';
+import { useNavigation } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { AppScreens, AppScreensParamList } from '@navigation/paramTypes';
 
 function Profile(): JSX.Element {
+    const navigation = useNavigation<StackNavigationProp<AppScreensParamList, AppScreens.PROFILE_SCREEN>>();
     const [isOn, setIsOn] = useState(false);
     const onPress = () => setIsOn(prev => !prev);
+
+    const handleSupport = () => {
+        navigation.navigate(AppScreens.SUPPORT_SCREEN);
+    };
+    const handleMyPosts = () => {
+        navigation.navigate(AppScreens.MYPOST_SCREEN);
+    };
 
     /* eslint-disable global-require */
     return (
@@ -82,7 +93,7 @@ function Profile(): JSX.Element {
                             </Typography>
                             <View className="flex-1 h-px bg-gray-300 ml-2" />
                         </View>
-                        <TouchableOpacity className="flex-row items-center px-4 py-2">
+                        <TouchableOpacity onPress={handleMyPosts} className="flex-row items-center px-4 py-2">
                             <FontAwesome6 name="list" size={18} color="black" />
                             <Typography intent="text" className="pl-2">
                                 My Posts
@@ -97,7 +108,7 @@ function Profile(): JSX.Element {
                             </Typography>
                             <View className="flex-1 h-px bg-gray-300 ml-2" />
                         </View>
-                        <TouchableOpacity className="flex-row items-center px-4 py-2">
+                        <TouchableOpacity className="flex-row items-center px-4 py-2" onPress={handleSupport}>
                             <FontAwesome6 name="circle-info" size={18} color="black" />
                             <Typography intent="text" className="pl-2">
                                 Help Center

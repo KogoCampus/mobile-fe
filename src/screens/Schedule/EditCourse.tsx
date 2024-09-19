@@ -10,7 +10,6 @@ import TypePicker from '@components/feature-schedule/TypePicker';
 import TextButton from '@components/ui/TextButton';
 import Typography from '@components/ui/Typography';
 import TextField from '@components/ui/TextField';
-import { log } from '@lib/utils';
 import { AppScreens, AppScreensParamList } from '../../navigation/paramTypes';
 
 interface Session {
@@ -55,7 +54,7 @@ const EditCourse: React.FC = function () {
                 setCourses(JSON.parse(coursesData));
             }
         } catch (error) {
-            log.error(error);
+            console.error(error);
         }
     };
 
@@ -63,7 +62,7 @@ const EditCourse: React.FC = function () {
         try {
             await SecureStore.setItemAsync('courses', JSON.stringify(courses));
         } catch (error) {
-            log.error(error);
+            console.error(error);
         }
     };
 
@@ -167,7 +166,7 @@ const EditCourse: React.FC = function () {
                 <TouchableOpacity onPress={() => navigation.goBack()} className="z-10">
                     <AntDesign name="close" size={30} color="black" />
                 </TouchableOpacity>
-                <View style={{ position: 'absolute', left: 0, right: 0, zIndex: -1 }}>
+                <View className="absolute z-[-1]" style={{ left: 0, right: 0 }}>
                     <Typography intent="subtitle" className="text-center">
                         Edit Courses
                     </Typography>

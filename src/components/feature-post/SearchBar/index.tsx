@@ -8,12 +8,12 @@ import {
     Keyboard,
     NativeSyntheticEvent,
     TextInputChangeEventData,
+    TextInputFocusEventData,
     TextInputSubmitEditingEventData,
     TextInput,
 } from 'react-native';
 import Typography from '@components/ui/Typography';
 import TextButton from '@components/ui/TextButton';
-import { log } from '@lib/utils';
 import * as SecureStore from 'expo-secure-store';
 import { useNavigation } from '@react-navigation/native';
 import { AppScreens, AppScreensParamList } from '@navigation/paramTypes';
@@ -52,7 +52,7 @@ const SearchBar: React.FC<SearchBarProps> = function ({ onGroupSelect, hideSearc
                 setSearchHistory(JSON.parse(history));
             }
         } catch (error) {
-            log.error(error);
+            console.error(error);
         }
     };
 
@@ -60,7 +60,7 @@ const SearchBar: React.FC<SearchBarProps> = function ({ onGroupSelect, hideSearc
         try {
             await SecureStore.setItemAsync('searchHistory', JSON.stringify(history));
         } catch (error) {
-            log.error(error);
+            console.error(error);
         }
     };
 
@@ -122,7 +122,7 @@ const SearchBar: React.FC<SearchBarProps> = function ({ onGroupSelect, hideSearc
                     placeholder="Search Posts"
                     value={input}
                     onChange={(e: NativeSyntheticEvent<TextInputChangeEventData>) => setInput(e.nativeEvent.text)}
-                    onFocus={() => setShowHistory(true)}
+                    onFocus={(e: NativeSyntheticEvent<TextInputFocusEventData>) => setShowHistory(true)}
                     onSubmitEditing={(e: NativeSyntheticEvent<TextInputSubmitEditingEventData>) =>
                         handleSearch(e.nativeEvent.text)
                     }

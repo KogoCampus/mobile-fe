@@ -20,6 +20,9 @@ export enum AppScreens {
     CREATEPOST_SCREEN = 'CreateNewPost',
     PROFILE_SCREEN = 'Profile',
     SEARCHRESULT_SCREEN = 'SearchResult',
+    NOTIFICATION_SCREEN = 'Notification',
+    SUPPORT_SCREEN = 'Support',
+    MYPOST_SCREEN = 'MyPost',
 }
 
 // eslint-disable-next-line no-shadow
@@ -52,6 +55,9 @@ export type AppScreensParamList = {
     [AppScreens.CREATEPOST_SCREEN]: undefined;
     [AppScreens.PROFILE_SCREEN]: undefined;
     [AppScreens.SEARCHRESULT_SCREEN]: { searchTerm: string };
+    [AppScreens.NOTIFICATION_SCREEN]: undefined;
+    [AppScreens.SUPPORT_SCREEN]: undefined;
+    [AppScreens.MYPOST_SCREEN]: undefined;
 } & { [key in AppNavigators]: undefined };
 
 export type AppScreenProps<T extends AppScreens | AppNavigators> = {

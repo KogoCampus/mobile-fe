@@ -6,16 +6,25 @@ import Skeleton from '@components/ui/Skeleton';
 import Typography from '@components/ui/Typography';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { AppScreens, AppScreensParamList } from '@navigation/paramTypes';
+import MyGroupListComponent from '@components/feature-groups/MyGroupList';
 
 const MyGroupList = function (): JSX.Element {
-    const [isLoading] = useState(true);
-    // const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(true);
     const navigation = useNavigation<StackNavigationProp<AppScreensParamList, AppScreens.GROUPLIST_SCREEN>>();
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setIsLoading(false);
+        }, 2000);
 
-    useEffect(() => {}, []);
+        return () => clearTimeout(timer);
+    }, []);
 
     const handlePress = () => {
         navigation.navigate(AppScreens.CREATEGROUP_SCREEN);
+    };
+
+    const handleGroupPress = () => {
+        console.log('Group Pressed');
     };
 
     return (
@@ -44,9 +53,7 @@ const MyGroupList = function (): JSX.Element {
                     </View>
                 ) : (
                     <View>
-                        <Typography intent="text" className="text-center mt-4">
-                            My Group List
-                        </Typography>
+                        <MyGroupListComponent onGroupPress={handleGroupPress} />
                     </View>
                 )}
             </View>

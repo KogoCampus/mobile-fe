@@ -11,7 +11,6 @@ import TextButton from '@components/ui/TextButton';
 import TypePicker from '@components/feature-schedule/TypePicker';
 import Typography from '@components/ui/Typography';
 import TextField from '@components/ui/TextField';
-import { log } from '@lib/utils';
 import { AppScreens, AppScreensParamList } from '../../navigation/paramTypes';
 
 interface Session {
@@ -72,7 +71,7 @@ const AddCourse: React.FC = function () {
                 setTypeOptions(JSON.parse(storedOptions));
             }
         } catch (error) {
-            log.error(error);
+            console.error(error);
         }
     };
 
@@ -80,7 +79,7 @@ const AddCourse: React.FC = function () {
         try {
             await SecureStore.setItemAsync('typeOptions', JSON.stringify(options));
         } catch (error) {
-            log.error(error);
+            console.error(error);
         }
     };
 
@@ -262,7 +261,7 @@ const AddCourse: React.FC = function () {
                 visible={typePickerVisible}
                 options={typeOptions}
                 onSelect={value => {
-                    handleTypeChange(selectedSession?.sessionIndex ?? 0, value);
+                    handleTypeChange(selectedSession?.sessionIndex || 0, value);
                     setTypePickerVisible(false);
                 }}
                 onClose={() => setTypePickerVisible(false)}

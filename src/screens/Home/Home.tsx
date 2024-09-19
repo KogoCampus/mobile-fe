@@ -1,4 +1,3 @@
-/* eslint-disable global-require */
 import React, { useState, useEffect } from 'react';
 import { View, TouchableOpacity, SafeAreaView, Image, Modal } from 'react-native';
 import { Entypo, Ionicons } from '@expo/vector-icons';
@@ -7,18 +6,20 @@ import Radio from '@components/ui/Radio';
 import Typography from '@components/ui/Typography';
 import AddButton from '@components/feature-post/AddButton';
 import SearchBar from '@components/feature-post/SearchBar';
+import { useNavigation } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { AppScreens, AppScreensParamList } from '@navigation/paramTypes';
+import MyGroupFeed from '@components/feature-post/MyGroupFeed';
+import TrendingFeed from '@components/feature-post/TrendingFeed';
 
 function Home(): JSX.Element {
+    const navigation = useNavigation<StackNavigationProp<AppScreensParamList, AppScreens.HOME_SCREEN>>();
     const [activeTab, setActiveTab] = useState('Following');
     const [filter, setFilter] = useState('SFU');
     const [isSearchModalVisible, setIsSearchModalVisible] = useState(false);
+    const [isFeedLoaded, setFeedLoaded] = useState(true);
 
-    // const [isFeedLoaded, setFeedLoaded] = useState(false);
-    // const [isTrendingLoaded, setTrendingLoaded] = useState(false);
-    const [isFeedLoaded] = useState(false);
-    const [isTrendingLoaded] = useState(false);
-
-    useEffect(() => {}, []);
+    const mockedGroupId = '999';
 
     const handleSearchIconPress = () => {
         setIsSearchModalVisible(true);
@@ -28,7 +29,20 @@ function Home(): JSX.Element {
         setIsSearchModalVisible(false);
     };
 
-    /* eslint-disable global-require */
+    const handleNotificationIconPress = () => {
+        navigation.navigate(AppScreens.NOTIFICATION_SCREEN);
+    };
+
+    const handlePostPress = (postId: string) => {
+        console.log('Post ID:', postId);
+    };
+
+    useEffect(() => {
+        if (isFeedLoaded) {
+            return;
+        }
+    }, [isFeedLoaded]);
+
     return (
         <SafeAreaView className="flex-1 bg-white">
             <View>
@@ -40,8 +54,8 @@ function Home(): JSX.Element {
                         <TouchableOpacity onPress={handleSearchIconPress}>
                             <Entypo name="magnifying-glass" size={24} color="black" />
                         </TouchableOpacity>
-                        <TouchableOpacity>
-                            <Ionicons name="notifications-sharp" size={20} color="black" className="ml-4" />
+                        <TouchableOpacity onPress={handleNotificationIconPress}>
+                            <Ionicons name="notifications-sharp" size={20} color="black" className="m-3" />
                         </TouchableOpacity>
                     </View>
                 </View>
@@ -62,15 +76,9 @@ function Home(): JSX.Element {
             <View className="h-2" />
             {(() => {
                 if (activeTab === 'Trending') {
-                    if (isTrendingLoaded) {
-                        return (
-                            <Typography intent="text" className="text-center mt-4">
-                                Trending Content
-                            </Typography>
-                        );
-                    }
-                    return <Skeleton intent="rounded" width={380} height={75} className="ml-2" />;
+                    return <TrendingFeed onPostPress={handlePostPress} />;
                 }
+
                 return (
                     <View className="flex-1 bg-white">
                         <View className="flex-row my-2 bg-white">
@@ -87,10 +95,13 @@ function Home(): JSX.Element {
                                 className="mx-2"
                             />
                         </View>
+
                         {isFeedLoaded ? (
-                            <Typography intent="text" className="text-center mt-4">
-                                My Group Feed Content
-                            </Typography>
+                            <MyGroupFeed
+                                filter={mockedGroupId}
+                                onPostPress={handlePostPress}
+                                onLoad={() => setFeedLoaded(true)}
+                            />
                         ) : (
                             <Skeleton intent="rounded" width={380} height={150} className="ml-2" />
                         )}
