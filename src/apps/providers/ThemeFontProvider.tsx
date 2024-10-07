@@ -1,4 +1,4 @@
-import { log } from '@lib/utils';
+import Log from '@lib/logger';
 import { useThemeFonts } from '../../../theme';
 
 export default function ThemeFontProvider({ children }: { children: React.ReactNode }): JSX.Element | null {
@@ -9,7 +9,7 @@ export default function ThemeFontProvider({ children }: { children: React.ReactN
     }
 
     if (fontError) {
-        log.error(`Failed to load fonts. ${fontError.message}`);
+        Log.error(`Failed to load fonts. ${fontError.message}`);
     }
 
     return children as JSX.Element;

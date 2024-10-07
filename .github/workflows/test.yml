@@ -1,4 +1,4 @@
-name: Node.js CI
+name: Run Tests
 
 on:
     workflow_dispatch:
@@ -8,7 +8,7 @@ on:
 
 jobs:
     build:
-        runs-on: self-hosted
+        runs-on: ubuntu-latest
 
         strategy:
             matrix:
@@ -16,19 +16,18 @@ jobs:
                 # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
         steps:
-            - uses: actions/checkout@v3
-            - name: Use Node.js ${{ matrix.node-version }}
-              uses: actions/setup-node@v3
-              with:
-                  node-version: ${{ matrix.node-version }}
-                  cache: 'npm'
-            
-            - name: Run install
-              uses: borales/actions-yarn@v4
-              with:
-                cmd: install # will run `yarn install` command
+          - uses: actions/checkout@v3
+          - name: Use Node.js ${{ matrix.node-version }}
+            uses: actions/setup-node@v3
+            with:
+                node-version: ${{ matrix.node-version }}
+                cache: 'pnpm'
 
-            - name: Run test in sub-folder
-              uses: borales/actions-yarn@v4
-              with:
-                cmd: test:ci
+          - name: Install pnpm
+            run: npm install -g pnpm
+
+          - name: Run install
+            run: pnpm install
+
+          - name: Run test in sub-folder
+            run: pnpm run test:ci

@@ -1,25 +1,37 @@
 ## Installation
+Add `.npmrc` in the project root to install depedencies from our private npm registry:  
 ```
-yarn install
+@KogoCampus:registry=https://npm.pkg.github.com
+//npm.pkg.github.com/:_authToken=your-github-token
+```
+Please refer [this](https://docs.catalyst.zoho.com/en/tutorials/githubbot/java/generate-personal-access-token/) to find how to obtain the personal github token.  
+
+```
+pnpm install
 npx husky
 ```
+
+## App Entry
+
+You may change the app's entry point depending on the environment you want to examine. Available options are: `storybook`, `development_msw`, `development`, and `production`.  
+Optionally you can enter into the storybook mode by `pnpm storybook`.  
 
 ## Commands
 ```
 # storybook
-yarn storybook
+pnpm storybook
 
 # start in dev mode
-yarn start
+pnpm start
 
 # run tests
-yarn run test
+pnpm run test
 
 # linter
-yarn run lint
+pnpm run lint
 
 # formatter
-yarn run prettier
+pnpm run prettier
 ```
 
 ## Conventional Commit

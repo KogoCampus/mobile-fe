@@ -21,15 +21,13 @@ web-build/
 
 # debug
 npm-debug.*
-yarn-debug.*
-yarn-error.*
 
 # macOS
 .DS_Store
 *.pem
 
 # local env files
-.env
+.npmrc
 
 # typescript
 *.tsbuildinfo

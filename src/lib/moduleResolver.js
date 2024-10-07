@@ -6,15 +6,21 @@ const moduleAlias = {
 module.exports = function (context, moduleName, platform) {
     let module;
     if (moduleName === moduleAlias.appEntry) {
-        switch (process.env.APP_ENTRY) {
-            case 'msw':
-                module = context.resolveRequest(context, `@apps/AppEntryWithMSW`, platform);
+        switch (process.env.EXPO_PUBLIC_APP_ENTRY) {
+            case 'production':
+                module = context.resolveRequest(context, `@apps/AppEntryProduction`, platform);
+                break;
+            case 'development':
+                module = context.resolveRequest(context, `@apps/AppEntryDevelopment`, platform);
+                break;
+            case 'development_msw':
+                module = context.resolveRequest(context, `@apps/AppEntryDevelopmentMSW`, platform);
                 break;
             case 'storybook':
                 module = context.resolveRequest(context, `@apps/Storybook`, platform);
                 break;
             default:
-                module = context.resolveRequest(context, `@apps/AppEntry`, platform);
+                module = context.resolveRequest(context, `@apps/AppEntryDevelopment`, platform);
                 break;
         }
     }

@@ -4,8 +4,7 @@
   "main": "src/index.ts",
   "scripts": {
     "start": "expo start",
-    "start:dev": "APP_ENTRY='msw' expo start",
-    "storybook": "sb-rn-get-stories && APP_ENTRY='storybook' expo start",
+    "storybook": "sb-rn-get-stories && EXPO_PUBLIC_APP_ENTRY='storybook' expo start",
     "test": "jest",
     "test:ci": "CI=true jest",
     "test:components": "jest --selectProjects @components",
@@ -14,6 +13,7 @@
     "storybook-watch": "sb-rn-watcher"
   },
   "dependencies": {
+    "@KogoCampus/logger": "^1.0.7",
     "@expo/vector-icons": "^14.0.0",
     "@hookform/resolvers": "^3.3.4",
     "@react-native-async-storage/async-storage": "1.23.1",
@@ -70,6 +70,7 @@
     "@testing-library/jest-dom": "^6.4.2",
     "@testing-library/react-native": "^12.4.1",
     "@types/jest": "^29.5.10",
+    "@types/node": "^22.7.4",
     "@types/react": "~18.2.79",
     "@types/react-native": "^0.73.0",
     "dotenv": "^16.4.5",
@@ -108,8 +109,8 @@
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx}": [
-      "yarn prettier",
-      "yarn lint"
+      "pnpm prettier --write",
+      "pnpm lint --fix"
     ]
   },
   "private": true,

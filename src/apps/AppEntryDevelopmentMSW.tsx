@@ -1,11 +1,11 @@
-import { log } from '@lib/utils';
+import Log from '@lib/logger';
 import AppEntry from './AppEntry';
 import server from '../../msw/server';
 
-log.info('Initializing MSW');
+Log.info('Initializing MSW');
 server.listen({
     onUnhandledRequest: ({ method, url }) => {
-        log.error(`Unhandled ${method} request to ${url}.`);
+        Log.error(`Unhandled ${method} request to ${url}.`);
     },
 });
 
