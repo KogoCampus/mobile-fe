@@ -17,13 +17,14 @@ jobs:
                 node-version: '20'
                 registry-url: "https://npm.pkg.github.com"
 
+          - name: Authenticate to GitHub NPM registry
+            run: echo "//npm.pkg.github.com/:_authToken=\${{ secrets.GITHUB_TOKEN }}" > ~/.npmrc
+
           - name: Install pnpm
             run: npm install -g pnpm
 
           - name: Run install
             run: pnpm install
-            env:
-                 NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
           - name: Run test in sub-folder
             run: pnpm run test:ci
