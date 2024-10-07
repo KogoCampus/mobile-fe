@@ -1,7 +1,6 @@
 name: Run Tests
 
 on:
-    workflow_dispatch:
     pull_request:
     push:
         branches: ['main']
@@ -10,26 +9,21 @@ jobs:
     build:
         runs-on: ubuntu-latest
 
-        strategy:
-            matrix:
-                node-version: [18.x]
-
         steps:
           - uses: actions/checkout@v3
           - name: Use Node.js ${{ matrix.node-version }}
             uses: actions/setup-node@v3
             with:
-                node-version: ${{ matrix.node-version }}
+                node-version: '20'
                 registry-url: "https://npm.pkg.github.com"
-
-          - name: Authenticate to GitHub NPM registry
-            run: echo "//npm.pkg.github.com/:_authToken=\${{ secrets.GITHUB_TOKEN }}" > ~/.npmrc
 
           - name: Install pnpm
             run: npm install -g pnpm
 
           - name: Run install
             run: pnpm install
+            env:
+                 NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
           - name: Run test in sub-folder
             run: pnpm run test:ci
