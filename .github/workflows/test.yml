@@ -28,7 +28,7 @@ jobs:
           - name: Run install
             run: pnpm install
             env:
-                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                NPM_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
           - name: Run test in sub-folder
             run: pnpm run test:ci
