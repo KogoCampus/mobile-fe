@@ -13,7 +13,6 @@ jobs:
         strategy:
             matrix:
                 node-version: [18.x]
-                # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
         steps:
           - uses: actions/checkout@v3
@@ -21,18 +20,15 @@ jobs:
             uses: actions/setup-node@v3
             with:
                 node-version: ${{ matrix.node-version }}
+                registry-url: "https://npm.pkg.github.com"
 
           - name: Install pnpm
             run: npm install -g pnpm
 
-          - uses: actions/npm-auth@v1
-            with:
-                registry-url: 'https://npm.pkg.github.com'
-            env:
-                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
           - name: Run install
             run: pnpm install
+            env:
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
           - name: Run test in sub-folder
             run: pnpm run test:ci
