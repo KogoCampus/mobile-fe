@@ -21,6 +21,12 @@ jobs:
             uses: actions/setup-node@v3
             with:
                 node-version: ${{ matrix.node-version }}
+                cache: 'npm'
+
+          - name: Set up authentication for GitHub npm registry
+            run: |
+              echo "@KogoCampus:registry=https://npm.pkg.github.com" > .npmrc
+              echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" > ~/.npmrc
 
           - name: Install pnpm
             run: npm install -g pnpm
