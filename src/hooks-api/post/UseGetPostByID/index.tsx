@@ -3,7 +3,7 @@ import axios, { AxiosError } from 'axios';
 import { ListPostResponse } from './types';
 import { BaseErrorResponse } from '../../types';
 
-const fetchPostByID = async (topicID:string, postID: string): Promise<ListPostResponse> => {
+const fetchPostByID = async (topicID: string, postID: string): Promise<ListPostResponse> => {
     try {
         const response = await axios.get<ListPostResponse>(`kogo/media/topics/${topicID}/posts/${postID}`, {
             // headers: {
@@ -17,7 +17,7 @@ const fetchPostByID = async (topicID:string, postID: string): Promise<ListPostRe
 };
 
 export function useGetPostByID(
-    topicID:string,
+    topicID: string,
     postID: string,
     queryOptions?: QueryOptions<ListPostResponse, BaseErrorResponse>,
 ): UseQueryResult<ListPostResponse, BaseErrorResponse> {
@@ -25,6 +25,6 @@ export function useGetPostByID(
         ...(queryOptions ?? {}),
         queryKey: ['postID', postID],
         queryFn: () =>
-            postID ? fetchPostByID(topicID,postID) : Promise.reject(new Error('Post information not available')),
+            postID ? fetchPostByID(topicID, postID) : Promise.reject(new Error('Post information not available')),
     });
 }

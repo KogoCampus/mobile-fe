@@ -28,12 +28,11 @@ export interface Post {
 
 export interface ListPostResponse {
     status: number;
-    data: Post; 
+    data: Post;
     message: string;
 }
 
-
 export interface GroupPostsProps {
     postID: string;
-    topicID:string;
+    topicID: string;
 }

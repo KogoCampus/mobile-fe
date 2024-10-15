@@ -1,5 +1,3 @@
-
-
 export interface Comment {
     id: string;
     authorId: string;
@@ -23,7 +21,6 @@ export interface ListReplyResponse {
     data: Comment[];
     message: string;
 }
-
 
 export interface FetchCommentsParams {
     topicID: string;

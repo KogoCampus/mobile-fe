@@ -6,8 +6,7 @@ import PostDetailPreview from '../PostDetailPreview';
 import Skeleton from '@components/ui/Skeleton';
 
 const PostDetail: React.FC<GroupPostsProps> = function ({ topicID, postID }) {
-    const { data: queryData, isLoading, isError } = useGetPostByID(topicID,postID);
-    
+    const { data: queryData, isLoading, isError } = useGetPostByID(topicID, postID);
 
     if (isLoading) {
         return (
@@ -38,7 +37,7 @@ const PostDetail: React.FC<GroupPostsProps> = function ({ topicID, postID }) {
                     numOfComments={data.comments.length}
                     userName="Anonymous"
                     authorSchoolName="SFU"
-                    topicId = {topicID}
+                    topicId={topicID}
                     postId={data.id.toString()}
                 />
             </View>

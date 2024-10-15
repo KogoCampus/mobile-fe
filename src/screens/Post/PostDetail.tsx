@@ -28,8 +28,8 @@ function PostDetails(): JSX.Element {
                 <AntDesign name="left" size={27} color="black" />
             </TouchableOpacity>
             <View className="flex-1">
-                <PostDetail topicID = {topicID} postID={postID} />
-                <CommentsList topicID = {topicID} postID={postID} />
+                <PostDetail topicID={topicID} postID={postID} />
+                <CommentsList topicID={topicID} postID={postID} />
             </View>
         </SafeAreaView>
     );

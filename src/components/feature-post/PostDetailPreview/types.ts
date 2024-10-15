@@ -13,5 +13,5 @@ export type PostPreviewProps = {
     userName: string;
     authorSchoolName: string;
     postId: string;
-    topicId:string;
+    topicId: string;
 };

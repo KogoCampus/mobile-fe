@@ -85,7 +85,7 @@ function Home(): JSX.Element {
             <View className="h-2" />
             {(() => {
                 if (activeTab === 'Trending') {
-                    return <TrendingFeed onPostPress={(postID) => handlePostPress(mockedGroupId, postID)} />;
+                    return <TrendingFeed onPostPress={postID => handlePostPress(mockedGroupId, postID)} />;
                 }
 
                 return (
@@ -108,7 +108,7 @@ function Home(): JSX.Element {
                         {isFeedLoaded ? (
                             <MyGroupFeed
                                 filter={mockedGroupId}
-                                onPostPress={(postID) => handlePostPress(mockedGroupId, postID)}
+                                onPostPress={postID => handlePostPress(mockedGroupId, postID)}
                                 onLoad={() => setFeedLoaded(true)}
                             />
                         ) : (

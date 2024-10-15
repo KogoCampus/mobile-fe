@@ -23,7 +23,7 @@ export enum AppScreens {
     NOTIFICATION_SCREEN = 'Notification',
     SUPPORT_SCREEN = 'Support',
     MYPOST_SCREEN = 'MyPost',
-    POSTDETAIL_SCREEN = 'PostDetail'
+    POSTDETAIL_SCREEN = 'PostDetail',
 }
 
 // eslint-disable-next-line no-shadow
@@ -59,7 +59,7 @@ export type AppScreensParamList = {
     [AppScreens.NOTIFICATION_SCREEN]: undefined;
     [AppScreens.SUPPORT_SCREEN]: undefined;
     [AppScreens.MYPOST_SCREEN]: undefined;
-    [AppScreens.POSTDETAIL_SCREEN]: { topicID:string,postID:string,savedActiveTab: string,savedFilter: string,}
+    [AppScreens.POSTDETAIL_SCREEN]: { topicID: string; postID: string; savedActiveTab: string; savedFilter: string };
 } & { [key in AppNavigators]: undefined };
 
 export type AppScreenProps<T extends AppScreens | AppNavigators> = {

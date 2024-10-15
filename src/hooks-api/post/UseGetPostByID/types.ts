@@ -45,10 +45,9 @@ export interface Group {
 
 export interface ListPostResponse {
     status: number;
-    data: Post;  
+    data: Post;
     message: string;
 }
-
 
 export interface GroupResponse {
     status: number;

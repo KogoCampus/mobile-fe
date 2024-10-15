@@ -15,7 +15,7 @@ const fetchCommentsByPostID = async ({ topicID, postID }: FetchCommentsParams): 
 export const useGetCommentsByPostID = (
     topicID: string,
     postID: string,
-    queryOptions?: QueryOptions<ListCommentResponse, BaseErrorResponse>
+    queryOptions?: QueryOptions<ListCommentResponse, BaseErrorResponse>,
 ): UseQueryResult<ListCommentResponse, BaseErrorResponse> => {
     return useQuery<ListCommentResponse, BaseErrorResponse>({
         ...(queryOptions ?? {}),
