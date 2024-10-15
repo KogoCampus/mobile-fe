@@ -4,6 +4,7 @@ import Home from '@screens/Home/Home';
 import CreateNewPost from '@screens/Post/CreateNewPost';
 import SearchResultScreen from '@screens/Home/SearchResult';
 import NotificationScreen from '@screens/Home/Notifications';
+import PostDetails from '@screens/Post/PostDetail';
 import { AppScreens, AppScreensParamList } from '../paramTypes';
 
 const Stack = createStackNavigator<AppScreensParamList>();
@@ -19,6 +20,7 @@ function HomeNavigator(): JSX.Element {
             <Stack.Screen name={AppScreens.CREATEPOST_SCREEN} component={CreateNewPost} />
             <Stack.Screen name={AppScreens.SEARCHRESULT_SCREEN} component={SearchResultScreen} />
             <Stack.Screen name={AppScreens.NOTIFICATION_SCREEN} component={NotificationScreen} />
+            <Stack.Screen name = {AppScreens.POSTDETAIL_SCREEN} component={PostDetails}/>
         </Stack.Navigator>
     );
 }

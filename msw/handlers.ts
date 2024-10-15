@@ -101,7 +101,75 @@ export const handlers = [
       ctx.json({
         status: 200,
         data: group,
-        message: 'Group fetched successfully',
+        message: '',
+      })
+    );
+  }),
+
+  rest.get('http://localhost:3000/kogo/media/topics/:topicID/posts/:postID', (req, res, ctx) => {
+    const { topicID, postID } = req.params as { topicID: string, postID: string };
+
+    const post = db.post.findFirst({
+      where: {
+        id: {
+          equals: postID,
+        },
+        topicId: {
+          equals: topicID,
+        },
+      },
+    });
+
+    return res(
+      ctx.status(200),
+      ctx.json({
+        status: 200,
+        data: post,
+        message: '',
+      })
+    );
+  }),
+
+  rest.get('http://localhost:3000/kogo/media/topics/:topicID/posts/:postID/comments', (req, res, ctx) => {
+    const { postID } = req.params as { postID: string };
+
+    const comments = db.comment.findMany({
+      where: {
+        postId: {
+          equals: postID,  
+        },
+      },
+    });
+
+    return res(
+      ctx.status(200),
+      ctx.json({
+        status: 200,
+        data: comments,
+        message: '',
+      })
+    );
+}),
+  // GET replies for a comment
+  rest.get('http://localhost:3000/kogo/media/topics/:topicID/posts/:postID/comments/:commentID/replies', (req, res, ctx) => {
+    const { commentID } = req.params as { commentID: string };
+    console.log(commentID,"hook commentID")
+
+    const replies = db.comment.findMany({
+      where: {
+        parentId: {
+          equals: commentID,
+        },
+      },
+    });
+
+    console.log(replies,"hookrep")
+    return res(
+      ctx.status(200),
+      ctx.json({
+        status: 200,
+        data: replies,
+        message: '',
       })
     );
   }),

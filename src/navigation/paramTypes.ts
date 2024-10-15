@@ -23,6 +23,7 @@ export enum AppScreens {
     NOTIFICATION_SCREEN = 'Notification',
     SUPPORT_SCREEN = 'Support',
     MYPOST_SCREEN = 'MyPost',
+    POSTDETAIL_SCREEN = 'PostDetail'
 }
 
 // eslint-disable-next-line no-shadow
@@ -39,7 +40,7 @@ export enum AppNavigators {
 
 export type AppScreensParamList = {
     [AppScreens.ONBOARDING_SCREEN]: undefined;
-    [AppScreens.HOME_SCREEN]: undefined;
+    [AppScreens.HOME_SCREEN]: { savedActiveTab?: string; savedFilter?: string } | undefined;
     [AppScreens.APP_LOADING]: undefined;
     [AppScreens.SIGNIN_SCREEN]: undefined;
     [AppScreens.EMAILINPUT_SCREEN]: undefined;
@@ -58,6 +59,7 @@ export type AppScreensParamList = {
     [AppScreens.NOTIFICATION_SCREEN]: undefined;
     [AppScreens.SUPPORT_SCREEN]: undefined;
     [AppScreens.MYPOST_SCREEN]: undefined;
+    [AppScreens.POSTDETAIL_SCREEN]: { topicID:string,postID:string,savedActiveTab: string,savedFilter: string,}
 } & { [key in AppNavigators]: undefined };
 
 export type AppScreenProps<T extends AppScreens | AppNavigators> = {

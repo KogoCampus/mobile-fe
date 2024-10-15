@@ -21,7 +21,6 @@ function AppNavigation(): JSX.Element {
 
     const handleNavigationStateChange = async () => {
         const currentRouteName = navigationContainerRef?.current?.getCurrentRoute()?.name;
-        console.log(`Screen: ${currentRouteName}`);
     };
 
     return (
