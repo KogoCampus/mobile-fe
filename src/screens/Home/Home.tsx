@@ -1,21 +1,25 @@
 import React, { useState, useEffect } from 'react';
-import { View, TouchableOpacity, SafeAreaView, Image, Modal } from 'react-native';
-import { Entypo, Ionicons } from '@expo/vector-icons';
+import { View, SafeAreaView, TouchableOpacity, Image, Modal } from 'react-native';
+import { useNavigation, useRoute, RouteProp } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { AppScreens, AppScreensParamList } from '@navigation/paramTypes';
+import MyGroupFeed from '@components/feature-post/MyGroupFeed';
+import TrendingFeed from '@components/feature-post/TrendingFeed';
 import Skeleton from '@components/ui/Skeleton';
 import Radio from '@components/ui/Radio';
 import Typography from '@components/ui/Typography';
 import AddButton from '@components/feature-post/AddButton';
 import SearchBar from '@components/feature-post/SearchBar';
-import { useNavigation } from '@react-navigation/native';
-import { StackNavigationProp } from '@react-navigation/stack';
-import { AppScreens, AppScreensParamList } from '@navigation/paramTypes';
-import MyGroupFeed from '@components/feature-post/MyGroupFeed';
-import TrendingFeed from '@components/feature-post/TrendingFeed';
+import { Entypo, Ionicons } from '@expo/vector-icons';
+
+type HomeRouteProp = RouteProp<AppScreensParamList, AppScreens.HOME_SCREEN>;
 
 function Home(): JSX.Element {
     const navigation = useNavigation<StackNavigationProp<AppScreensParamList, AppScreens.HOME_SCREEN>>();
-    const [activeTab, setActiveTab] = useState('Following');
-    const [filter, setFilter] = useState('SFU');
+    const route = useRoute<HomeRouteProp>();
+
+    const [activeTab, setActiveTab] = useState(route.params?.savedActiveTab ?? 'Following');
+    const [filter, setFilter] = useState(route.params?.savedFilter ?? 'SFU');
     const [isSearchModalVisible, setIsSearchModalVisible] = useState(false);
     const [isFeedLoaded, setFeedLoaded] = useState(true);
 
@@ -33,8 +37,13 @@ function Home(): JSX.Element {
         navigation.navigate(AppScreens.NOTIFICATION_SCREEN);
     };
 
-    const handlePostPress = (postId: string) => {
-        console.log('Post ID:', postId);
+    const handlePostPress = (topicID: string, postID: string) => {
+        navigation.navigate(AppScreens.POSTDETAIL_SCREEN, {
+            topicID,
+            postID,
+            savedActiveTab: activeTab,
+            savedFilter: filter,
+        });
     };
 
     useEffect(() => {
@@ -76,7 +85,7 @@ function Home(): JSX.Element {
             <View className="h-2" />
             {(() => {
                 if (activeTab === 'Trending') {
-                    return <TrendingFeed onPostPress={handlePostPress} />;
+                    return <TrendingFeed onPostPress={postID => handlePostPress(mockedGroupId, postID)} />;
                 }
 
                 return (
@@ -99,7 +108,7 @@ function Home(): JSX.Element {
                         {isFeedLoaded ? (
                             <MyGroupFeed
                                 filter={mockedGroupId}
-                                onPostPress={handlePostPress}
+                                onPostPress={postID => handlePostPress(mockedGroupId, postID)}
                                 onLoad={() => setFeedLoaded(true)}
                             />
                         ) : (
