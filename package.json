@@ -35,7 +35,7 @@
     "expo-status-bar": "~1.12.1",
     "expo-updates": "~0.25.13",
     "msw": "1.3.3",
-    "nativewind": "^4.0.36",
+    "nativewind": "^2.0.11",
     "react": "^18.2.0",
     "react-hook-form": "^7.49.2",
     "react-native": "0.74.1",
