@@ -59,7 +59,12 @@ export type AppScreensParamList = {
     [AppScreens.NOTIFICATION_SCREEN]: undefined;
     [AppScreens.SUPPORT_SCREEN]: undefined;
     [AppScreens.MYPOST_SCREEN]: undefined;
-    [AppScreens.POSTDETAIL_SCREEN]: { topicID: string; postID: string; savedActiveTab: string; savedFilter: string };
+    [AppScreens.POSTDETAIL_SCREEN]: {
+        topicID: string;
+        postID: string;
+        savedActiveTab: string;
+        savedFilter: string;
+    };
 } & { [key in AppNavigators]: undefined };
 
 export type AppScreenProps<T extends AppScreens | AppNavigators> = {

@@ -1,15 +1,13 @@
-/** @type {import('tailwindcss').Config} */
-
-import { useFonts, loadAsync } from 'expo-font';
+import { useFonts, loadAsync } from "expo-font";
 
 const fonts = {
-  'WantedSansExtraBlack': require('./fonts/WantedSans-ExtraBlack.otf'),
-  'WantedSansBlack': require('./fonts/WantedSans-Black.otf'),
-  'WantedSansExtraBold': require('./fonts/WantedSans-ExtraBold.otf'),
-  'WantedSansBold': require('./fonts/WantedSans-Bold.otf'),
-  'WantedSansSemiBold': require('./fonts/WantedSans-SemiBold.otf'),
-  'WantedSansMedium': require('./fonts/WantedSans-Medium.otf'),
-  'WantedSansRegular': require('./fonts/WantedSans-Regular.otf'),
+  WantedSansExtraBlack: require("../src/assets/fonts/WantedSans-ExtraBlack.otf"),
+  WantedSansBlack: require("../src/assets/fonts/WantedSans-Black.otf"),
+  WantedSansExtraBold: require("../src/assets/fonts/WantedSans-ExtraBold.otf"),
+  WantedSansBold: require("../src/assets/fonts/WantedSans-Bold.otf"),
+  WantedSansSemiBold: require("../src/assets/fonts/WantedSans-SemiBold.otf"),
+  WantedSansMedium: require("../src/assets/fonts/WantedSans-Medium.otf"),
+  WantedSansRegular: require("../src/assets/fonts/WantedSans-Regular.otf"),
 }
 
 /**

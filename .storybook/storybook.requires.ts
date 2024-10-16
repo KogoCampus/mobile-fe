@@ -12,15 +12,14 @@ import "@storybook/addon-ondevice-actions/register";
 const normalizedStories = [
   {
     titlePrefix: "",
-    directory: "./src",
-    files: "**/*.stories.?(js|jsx|mjs|ts|tsx)",
-    importPathMatcher:
-      /^\.(?:(?:^|\/|(?:(?:(?!(?:^|\/)\.).)*?)\/)(?!\.)(?=.)[^/]*?\.stories\.(?:js|jsx|mjs|ts|tsx)?)$/,
+    directory: "./src/components/ui/Typography",
+    files: "index.stories.tsx",
+    importPathMatcher: /^\.[\\/](?:index\.stories\.tsx)$/,
     // @ts-ignore
     req: require.context(
-      "../src",
-      true,
-      /^\.(?:(?:^|\/|(?:(?:(?!(?:^|\/)\.).)*?)\/)(?!\.)(?=.)[^/]*?\.stories\.(?:js|jsx|mjs|ts|tsx)?)$/
+      "../src/components/ui/Typography",
+      false,
+      /^\.[\\/](?:index\.stories\.tsx)$/
     ),
   },
 ];

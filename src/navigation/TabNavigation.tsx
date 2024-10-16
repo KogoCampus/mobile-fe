@@ -35,7 +35,11 @@ function TabNavigation(): JSX.Element {
                 tabBarInactiveTintColor: 'lightgrey',
                 tabBarIcon: ({ color, focused }) => getTabBarIcon(route.name, color, 24),
                 tabBarIndicatorStyle: { backgroundColor: 'black' },
-                tabBarStyle: { backgroundColor: 'white', justifyContent: 'center', paddingBottom: 25 },
+                tabBarStyle: {
+                    backgroundColor: 'white',
+                    justifyContent: 'center',
+                    paddingBottom: 25,
+                },
                 tabBarContentContainerStyle: {
                     flexDirection: 'row',
                     justifyContent: 'space-around',

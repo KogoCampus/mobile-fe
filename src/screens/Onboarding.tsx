@@ -23,19 +23,19 @@ function SplashScreen(): JSX.Element {
     return (
         <Swiper direction="horizontal">
             <View className="flex-1 justify-center items-center bg-white">
-                <Image className="w-4/5 h-1/3 resize-contain" source={require('@images/Onboarding_1.png')} />
+                <Image className="w-4/5 h-1/3 resize-contain" source={require('@assets/images/Onboarding_1.png')} />
                 <Typography intent="text" className="text-base text-center px-5">
                     Organize your courses, plans, more
                 </Typography>
             </View>
             <View className="flex-1 justify-center items-center bg-white">
-                <Image className="w-4/5 h-1/3 resize-contain" source={require('@images/Onboarding_2.png')} />
+                <Image className="w-4/5 h-1/3 resize-contain" source={require('@assets/images/Onboarding_2.png')} />
                 <Typography intent="text" className="text-base text-center px-5">
                     Connect with other students in {'\n'}20+ Canadian Universities
                 </Typography>
             </View>
             <View className="flex-1 justify-center items-center bg-white">
-                <Image className="w-4/5 h-1/3 resize-contain" source={require('@images/Onboarding_3.png')} />
+                <Image className="w-4/5 h-1/3 resize-contain" source={require('@assets/images/Onboarding_3.png')} />
                 <Typography intent="text" className="text-base text-center px-5 mb-4">
                     Broaden your university life
                 </Typography>

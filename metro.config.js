@@ -1,7 +1,6 @@
 // Learn more https://docs.expo.io/guides/customizing-metro\
 const dotenv = require('dotenv');
 const { getDefaultConfig } = require('expo/metro-config');
-const { withNativeWind } = require('nativewind/metro');
 const moduleResolver = require('./src/lib/moduleResolver');
 
 dotenv.config({ path: ['.env.local', '.env'] });
@@ -16,4 +15,4 @@ defaultConfig.resolver.resolverMainFields.unshift('sbmodern');
  */
 defaultConfig.resolver.resolveRequest = moduleResolver;
 
-module.exports = withNativeWind(defaultConfig, { input: './theme/tailwind.css' });
+module.exports = defaultConfig;

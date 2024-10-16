@@ -20,7 +20,7 @@ function AppNavigation(): JSX.Element {
     const navigationContainerRef = useRef<NavigationContainerRef<any>>(null);
 
     const handleNavigationStateChange = async () => {
-        const currentRouteName = navigationContainerRef?.current?.getCurrentRoute()?.name;
+        // const currentRouteName = navigationContainerRef?.current?.getCurrentRoute()?.name;
     };
 
     return (

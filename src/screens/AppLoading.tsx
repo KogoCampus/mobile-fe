@@ -42,7 +42,10 @@ function AppLoading(): JSX.Element {
                     Dimensions.get('window').height / 2 + 19,
                 ),
             ]).start(() => {
-                navigation.navigate({ name: AppScreens.ONBOARDING_SCREEN, params: undefined });
+                navigation.navigate({
+                    name: AppScreens.ONBOARDING_SCREEN,
+                    params: undefined,
+                });
             });
         };
 
@@ -56,7 +59,7 @@ function AppLoading(): JSX.Element {
     return (
         /* eslint-disable global-require */
         <View style={styles.container}>
-            <Image style={styles.logo} source={require('@images/logo_.png')} />
+            <Image style={styles.logo} source={require('@assets/images/logo_.png')} />
             <Animated.View style={[styles.dot, styles.dot1, { top: dot1Anim }]} />
             <Animated.View style={[styles.dot, styles.dot2, { top: dot2Anim }]} />
         </View>

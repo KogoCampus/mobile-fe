@@ -20,7 +20,8 @@
         "@screens": ["src/screens/index"],
         "@lib/*": ["src/lib/*"],
         "@lib": ["src/lib/index"],
-        "@images/*": ["src/assets/images/*"],
+        "@assets/*": ["src/assets/*"],
+        "@theme": ["src/theme/index"],
     },
   },
 }
